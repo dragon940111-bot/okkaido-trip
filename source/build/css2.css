@@ -863,3 +863,22 @@ a.mvgo:hover .it-t,a.mvgo:active .it-t{filter:brightness(.96);border-style:solid
 .rtbtn[aria-expanded="true"] .rtcap::before{content:"▼ 접기"}
 .rtbtn{position:fixed}
 .rtpan{bottom:calc(max(14px,env(safe-area-inset-bottom,0px)) + 92px)}
+
+/* v19.20 휴게소 칩 */
+.it-b p.rests{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.it-b a.restchip{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;line-height:1;padding:6px 10px;border-radius:999px;background:#fff4e6;color:#b35309;border:1px solid #f5c58c;text-decoration:none;white-space:nowrap}
+.it-b a.restchip::before{content:"☕";font-size:12px}
+.it-b a.restchip:active{background:#ffe8cc}
+@media (prefers-color-scheme:dark){.it-b a.restchip{background:#3a2a14;color:#ffc078;border-color:#7a5320}}
+
+/* v19.20 stay_near — 숙소 주변 맛집·술집·편의점 */
+.card .access{margin:6px 0 4px;padding:7px 10px;border-radius:8px;background:color-mix(in srgb,var(--accent) 9%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));font-size:13.5px;line-height:1.5}
+.card .access b{display:inline-block;margin-right:6px;color:var(--accent);font-weight:800}
+.phnote.nophoto{margin:0 0 2px;padding:10px 12px 0}
+.nearsec .nearsum{margin:0 0 8px}
+.nearsec h5.nearh{margin:16px 0 2px}
+.nearsec h5.nearh small{font-weight:600;color:var(--muted,#667);margin-left:4px}
+.nearsec .nearsub{margin:0 0 8px;font-size:13px;color:var(--muted,#667)}
+.nearsec .nearlist{padding:0}
+.neartbl td{vertical-align:top}
+.neartbl .kind{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 6px;border-radius:6px;background:color-mix(in srgb,var(--accent) 12%,var(--card))}

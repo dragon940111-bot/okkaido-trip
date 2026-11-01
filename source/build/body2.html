@@ -32,6 +32,7 @@
     <a class="factlink" href="#stay"><dt>숙소</dt><dd>FlexCella North17 B · 北18条역 근처 · 주차 1대</dd><span class="fgo">가는 길·이용 방법 ›</span></a>
     <div><dt>해 지는 시각</dt><dd>16:20 전후</dd></div>
     <div><dt>조사 기준</dt><dd>2026-10-30 · 날씨는 11/1 다시 확인 (기상청 11/1 11시 발표)</dd></div>
+    <a class="factlink" href="#stay_near"><dt>숙소 주변</dt><dd>{{NEARFACT}}</dd><span class="fgo">펼쳐 보기 ›</span></a>
   </dl>
   <a class="guidecta" href="https://claude.ai/artifact/3cV9wQR5GUyk5nVJErzLQm" target="_blank" rel="noopener">
     <span class="gc-ic" aria-hidden="true">🚗</span>
@@ -362,5 +363,23 @@
   })();
   window.addEventListener('hashchange',function(){openFor(location.hash);});
   if(location.hash) openFor(location.hash);
+})();
+</script>
+<script>
+/* v19.20 펼쳐보기↔접기 */
+(function(){
+  var RE=/펼쳐\s?보기/;
+  function upd(d){
+    var sm=null; for(var i=0;i<d.children.length;i++){ if(d.children[i].tagName==='SUMMARY'){ sm=d.children[i]; break; } }
+    if(!sm) return;
+    var w=document.createTreeWalker(sm,NodeFilter.SHOW_TEXT), n;
+    while((n=w.nextNode())){
+      if(n.__o==null){ if(!RE.test(n.nodeValue)) continue; n.__o=n.nodeValue; }
+      n.nodeValue=d.open ? n.__o.replace(RE,'접기') : n.__o;
+    }
+  }
+  document.addEventListener('toggle',function(e){ var t=e.target; if(t&&t.tagName==='DETAILS') upd(t); },true);
+  function all(){ document.querySelectorAll('details').forEach(upd); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',all); else all();
 })();
 </script>

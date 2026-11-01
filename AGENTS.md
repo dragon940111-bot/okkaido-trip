@@ -31,6 +31,8 @@
 | `source/build/book19.py` `lodging19.py` `altbook19.py` (+ `.css`) | 미리 할 것·예약 목록, 숙소 안내, 대안 예약 목록 | ✅ |
 | `source/build/wx19.py` | 날씨 표(11/1 기준) | ✅ |
 | `source/build/scen/scen_*.py` | 일정 변경 대안 A–G 상세 | ✅ |
+| `source/build/restareas.py` | 이동 칸 "휴게소 1, 2…" 칩: (구역 id, 시각) → 휴게소 목록 | ✅ |
+| `source/build/near_conv.json` | 숙소 주변 편의점·슈퍼 표 (맛집·술집은 data2.py `nr_*`) | ✅ |
 | `source/build/photos.json` / `img/meta.json` | 카드별 사진 목록 / 사진 출처 | 조심해서 |
 | `source/build/img/` | 사진 원본(`o_*` 가게 공식, `u_*` 여행자 제공, 나머지 자유 라이선스) | |
 | `source/build/site/map/` | 날짜별 경로 지도 그림(원본) | |

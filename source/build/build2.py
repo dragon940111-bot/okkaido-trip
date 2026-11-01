@@ -94,6 +94,8 @@ def strip_photos(cardkey, owner, alt, real=None):
     # v19.10: 가게 실제 사진(공식 o_ · 여행자 제공 u_)이 있으면 예시 사진은 섞지 않음
     if any(k.startswith(('u_', 'o_')) for k, _ in lst): lst = [(k, s) for k, s in lst if k.startswith(('u_', 'o_'))]
     if not lst:
+        if R.get(cardkey, {}).get('nophoto'):   # v19.20 숙소 주변: 사진 없이 실제 가게 사진 링크만
+            return (f'<p class="phnote nophoto"><a class="phreal" href="{E(real[0])}" target="_blank" rel="noopener">{E(real[1])} →</a></p>') if real else ''
         MISSING.append((owner, cardkey)); return ''
     figs = []
     PHOTO_HOME.setdefault(cardkey, tuple(CUR))
@@ -141,6 +143,7 @@ def eat_card(key, alt=False, ctx=None):
     <div class="meta">{badge(r.get('orig'))}<span class="genre">{E(r['genre'])}</span>{status_html(st)}</div>
     <h4><span class="jn" lang="ja">{E(r['name'])}</span> <small class="nmline"><span class="nml">한글 이름</span>{E(r['ko'])} · <span class="nml">위치</span>{E(r['area'])}</small></h4>
     {note}
+    {(f'<p class="access"><b>숙소에서</b>{E(r["access"])}</p>') if r.get('access') else ''}
     {rating(r.get('g'), r.get('gn'), r.get('t'))}
     {award}
     {why}
@@ -329,6 +332,19 @@ def _nav_dest(items, i):
         if '공항' in title or '터미널' in title or 'LJ2' in title: return ('新千歳空港 国際線ターミナル', None)
         return (_re.sub(r'\s*\(.*$', '', title), None)
     return (LODGING_Q, None)
+import restareas as _RA
+from urllib.parse import quote as _rq
+def _rest_html(t):
+    sec = (CUR[1] if len(CUR) > 1 else '').lstrip('#')
+    lst = _RA.REST.get((sec, t))
+    if not lst: return ''
+    out = []
+    for k, (code, dr) in enumerate(lst, 1):
+        jp, ko = _RA.SPOTS[code]
+        q = jp + (f'({dr})' if dr else '')
+        nm = ko + (f' · {dr}' if dr else '')
+        out.append(f'<a class="restchip" href="https://www.google.com/maps/search/?api=1&amp;query={_rq(q)}" target="_blank" rel="noopener" title="{E(nm)}" aria-label="휴게소 {k}: {E(nm)}">휴게소 {k}</a>')
+    return '<p class="rests">' + ''.join(out) + '</p>'
 def _tl_rows(items, ctx=None):
     rows = []
     for _i, (t, kind, ref, title, sub, num, alts) in enumerate(items):
@@ -346,6 +362,7 @@ def _tl_rows(items, ctx=None):
                 if '지하철' in title: _u = _u.replace('travelmode=driving', 'travelmode=transit')
                 body = (f'<a class="mvgo" href="{E(_u)}" target="_blank" rel="noopener"><p class="it-t">{mn}{E(title)}<span class="navchip">길안내 ▶</span></p></a>'
                         + (f'<p class="it-s">{E(sub)}</p>' if sub else ''))
+                body += _rest_html(t)
             else:
                 body = f'<p class="it-t">{mn}{E(title)}</p>' + (f'<p class="it-s">{E(sub)}</p>' if sub else '')
             if ref and kind == 'eat':
@@ -440,8 +457,36 @@ def book_html_v18():
 
 # v19.2: 미리 할 것(book19) + 숙소 체크인·가는 길(lodging19) + 대안으로 바꿀 때 예약할 것(altbook19)
 import book19 as _bk19, lodging19 as _st19, altbook19 as _ab19
+# v19.20: 숙소 주변 맛집·술집·편의점 (카드는 eat_card 그대로, 편의점은 build/near_conv.json 있으면 표)
+NEAR_GROUPS = [('dinner', '늦게까지 하는 저녁 맛집', '일정 끝나고 19–21시에 와도 갈 수 있는 곳 위주. 걸어서 갈 곳 → 지하철·차 순.'),
+               ('morning', '아침 먹을 곳', '11/4·11/5는 9:00 출발, 11/6은 8:15 체크아웃.'),
+               ('bar', '술집', '이자카야·꼬치·바. 자정 넘어서까지 하는 곳 많음.')]
+def _walkmin(k):
+    m = _re.search(r'도보 (\d+)분', R[k].get('access', '')); return int(m.group(1)) if m else 99
+def near_conv():
+    p = os.path.join(HERE, 'near_conv.json')
+    try: return json.load(open(p, encoding='utf-8')) if os.path.exists(p) else []
+    except Exception: return []
+def near_html():
+    out = ['<p class="nearsum">숙소(北17条東2丁目)에서 가는 법(도보·차·지하철)은 카드마다 <b>숙소에서</b> 줄에 적었음. 영업시간·평점은 11/1 구글 지도 기준, 11/3은 공휴일이라 시간 바뀔 수 있음.</p>']
+    for g, title, sub in NEAR_GROUPS:
+        keys = sorted([k for k in R if k.startswith('nr_') and R[k].get('near') == g], key=_walkmin)
+        if not keys: continue
+        out.append(f'<h5 class="nearh">{E(title)} <small>{len(keys)}곳</small></h5><p class="nearsub">{E(sub)}</p><div class="altlist nearlist">{"".join(eat_card(k) for k in keys)}</div>')
+    conv = near_conv()
+    if conv:
+        rows = ''.join(f'<tr><td><span class="kind">{E(c.get("kind",""))}</span> <span lang="ja">{E(c.get("name",""))}</span><br><small>{E(c.get("ko",""))}</small>{("<br><small>" + E(c["note"]) + "</small>") if c.get("note") else ""}</td>'
+                       f'<td>{E(c.get("walk",""))}</td><td>{E(c.get("hours",""))}</td><td>{a(gsearch(c.get("q") or c.get("name",""), c.get("pid") or None), "구글맵")}</td></tr>' for c in conv)
+        out.append(f'<h5 class="nearh">걸어서 갈 편의점·슈퍼 <small>{len(conv)}곳</small></h5><div class="tblwrap"><table class="neartbl"><thead><tr><th>가게</th><th>걸어서</th><th>운영시간</th><th></th></tr></thead><tbody>{rows}</tbody></table></div>')
+    return ''.join(out)
+def near_fact():
+    nd = sum(1 for k in R if k.startswith('nr_') and R[k].get('near') in ('dinner', 'morning'))
+    nb = sum(1 for k in R if k.startswith('nr_') and R[k].get('near') == 'bar')
+    nc = len(near_conv())
+    return f'맛집 {nd} · 술집 {nb}' + (f' · 편의점·슈퍼 {nc}' if nc else ' · 편의점') + ' (걸어서·지하철)'
 def lodging_html():
     secs = ''.join(f'<details class="staysec" id="{x["id"]}"><summary>{E(x["title"])}</summary><div class="staybody">{x["html"]}</div></details>' for x in _st19.STAY_SECTIONS)
+    secs += f'<details class="staysec nearsec" id="stay_near"><summary>숙소 주변 맛집·술집·편의점</summary><div class="staybody">{near_html()}</div></details>'
     return (f'<details class="bkdet stayd" id="stay"><summary>{E(_st19.STAY_TITLE)}</summary>'
             f'<div class="stay"><p class="staysum">{_st19.STAY_SUMMARY_HTML}</p>{secs}</div></details>')
 def book_html():
@@ -596,7 +641,7 @@ def sidenav_html():
             f'<nav class="tocpanel" id="tocpanel" aria-label="목차" hidden><p class="sntitle">목차 <span class="snr">{FA}<button type="button" class="tocx" aria-label="닫기">✕</button></span></p>{ul}{FB}</nav>')
 page = (page.replace('{{WX}}', wx_table()).replace('{{SIDENAV}}', sidenav_html()).replace('{{BOOK}}', book_html()).replace('{{BOOKN}}', str(len(_bk19.BOOK19))).replace('{{ALTN}}', str(sum(len(g['items']) for g in _ab19.ALTBOOK))).replace('{{DAYS}}', days_html)
         .replace('{{CHANGES}}', changes_html()).replace('{{EATLIST}}', eatlist_html()).replace('{{SCEN}}', scen_all).replace('{{REGIONS}}', regions_html)
-        .replace('{{CREDITS}}', credits()))
+        .replace('{{CREDITS}}', credits()).replace('{{NEARFACT}}', near_fact()))
 
 import html as _html, re
 def _walk_text(page, fn):
