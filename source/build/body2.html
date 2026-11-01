@@ -1,0 +1,317 @@
+
+{{SIDENAV}}
+<script>try{if(localStorage.getItem('hk-nav-closed')==='1')document.documentElement.classList.add('navclosed');}catch(e){}</script>
+<nav class="jump jtop" aria-label="바로가기"><ul>
+  <li><a href="#map">전체 지도</a></li>
+  <li><a href="#weather">날씨</a></li>
+  <li><a href="#booking">예약할 것</a></li>
+  <li><a href="#changes">원래 일정 비교</a></li>
+  <li><a href="#eatlist">맛집 모아 보기</a></li>
+  <li><a href="#day1" class="n1"><span class="shield">1</span>11/2</a></li>
+  <li><a href="#day2" class="n2"><span class="shield">2</span>11/3</a></li>
+  <li><a href="#day3" class="n3"><span class="shield">3</span>11/4</a></li>
+  <li><a href="#day4" class="n4"><span class="shield">4</span>11/5</a></li>
+  <li><a href="#day5" class="n5"><span class="shield">5</span>11/6</a></li>
+  <li><a href="#swap">일정 변경 대안</a></li>
+  <li><a href="#regions">외곽 맛집 모음</a></li>
+  <li><a href="#sources">출처</a></li>
+</ul><a class="jdetail" href="#detail">상세 일정 바로가기 ↓</a></nav>
+<div class="wide" id="top">
+<header class="top">
+  <p class="eyebrow">2026 · 11 · 02 MON — 11 · 06 FRI · 렌터카 4박 5일</p>
+  <h1>홋카이도 맛집 투어 계획</h1>
+  <ul class="leadlist">
+    <li>삿포로 북17조 숙소 거점으로, 비 오는 곳 피해서 날마다 다른 지역 가게 짰음. 출발은 매일 9시 이후.</li>
+    <li>끼니마다 메인 맛집 1곳 + 같은 동선 대안 맛집 3–5곳 붙였음.</li>
+    <li>저녁 일찍 먹는 11/2·11/3은 숙소에 차 두고 지하철로 야식 먹으러 가는 거 넣었음.</li>
+    <li>시코쓰호·오타루·도야·노보리베쓰는 1시간쯤 자유시간이랑 할 만한 것 목록 넣었음.</li>
+  </ul>
+  <dl class="facts">
+    <div><dt>항공</dt><dd>LJ203 11/2 11:15 도착 · LJ204 11/6 12:15 출발</dd></div>
+    <a class="factlink" href="#car_route"><dt>렌터카</dt><dd>Jnet 신치토세 · R0V66VWT · 4WD 스터드리스</dd><span class="fgo">빌리러 가는 길 ›</span></a>
+    <a class="factlink" href="#stay"><dt>숙소</dt><dd>FlexCella North17 B · 北18条역 근처 · 주차 1대</dd><span class="fgo">가는 길·이용 방법 ›</span></a>
+    <div><dt>해 지는 시각</dt><dd>16:20 전후</dd></div>
+    <div><dt>조사 기준</dt><dd>2026-10-30 · 날씨는 11/1 다시 확인 (기상청 11/1 11시 발표)</dd></div>
+  </dl>
+  <a class="guidecta" href="https://claude.ai/artifact/3cV9wQR5GUyk5nVJErzLQm" target="_blank" rel="noopener">
+    <span class="gc-ic" aria-hidden="true">🚗</span>
+    <span class="gc-t"><b>일본 운전 가이드 열기</b><small>표지판 · 고속도로 ETC · 휴게소 · 주차장 · 주차 요금 보는 법</small></span>
+    <span class="gc-go" aria-hidden="true">→</span>
+  </a>
+  <details class="legend2" id="legend2">
+    <summary>이 페이지의 표시 읽는 법</summary>
+    <p class="lg-intro"><b>처음 일정표(PDF)</b> = 동재·현준·경일 회의에서 정한 18곳(11/2–11/4). 이걸 날씨·동선에 맞춰 다시 짰음.</p>
+    <ul class="lg">
+      <li><span class="badge orig">기존 #16</span><span>처음 PDF 일정표에 있던 곳. 숫자 = PDF 번호.</span></li>
+      <li><span class="badge new">신규</span><span>이번에 새로 넣은 곳.</span></li>
+      <li><span class="badge opt">선택 · 신규</span><span>시간 되면 들르는 곳. 빼도 됨.</span></li>
+      <li><span class="mn" style="--dc:var(--accent)">3</span><span>그날 지도 번호 (상세 일정 번호랑 같음).</span></li>
+      <li><span class="lg-st ok">11/2 ✅</span><span>그날 영업 확인됨. <b class="lg-warn">⚠</b> = 영업일인데 한 번 더 확인, <b class="lg-warn">❌</b> = 그날 휴무.</span></li>
+      <li><span class="lg-rt">食べログ 3.80</span><span>타베로그(일본 맛집 평점). 3.5↑ 상위권, 3.6↑ 지역 최상위권. 구글은 ★점수(리뷰 수).</span></li>
+      <li><span class="lg-move">이동</span><span>차·지하철 이동 구간.</span></li>
+      <li><span class="lg-chip alt">+ 대안 맛집</span><span>같은 시간·동선으로 갈 수 있는 다른 가게. 펼치면 바꿨을 때 일정이 어떻게 달라지는지 나옴.</span></li>
+      <li><span class="lg-chip free">+ 자유시간</span><span>자유시간에 들를 만한 곳. "일정 조정" 줄 있으면 시간 더 걸리는 곳.</span></li>
+      <li><span class="lg-chip scen">A–G</span><span>일정 변경 대안. 하루(또는 반나절)를 다른 코스로 바꾸는 안. 대안마다 시간표·맛집·지도 접혀 있음.</span></li>
+      <li><span class="lg-chip ph">가게 공식 사진</span><span>가게가 타베로그에 직접 올린 사진. 메뉴 이름표 붙은 건 가게·촬영자 허락 받고 넣은 사진. 장소·동네 사진은 다 실제 그곳 사진.</span></li>
+      <li><span class="lg-chip yen">¥</span><span>가격은 엔화, 대부분 1인 기준 (¥1,000 ≈ 1만 원 안팎).</span></li>
+    </ul>
+  </details><script>try{if(matchMedia("(min-width:761px)").matches)document.getElementById("legend2").open=true;}catch(e){}</script>
+</header>
+
+</div>
+<nav class="jump jmain" aria-label="바로가기"><ul>
+  <li><a href="#map">전체 지도</a></li>
+  <li><a href="#weather">날씨</a></li>
+  <li><a href="#booking">예약할 것</a></li>
+  <li><a href="#changes">원래 일정 비교</a></li>
+  <li><a href="#eatlist">맛집 모아 보기</a></li>
+  <li><a href="#day1" class="n1"><span class="shield">1</span>11/2</a></li>
+  <li><a href="#day2" class="n2"><span class="shield">2</span>11/3</a></li>
+  <li><a href="#day3" class="n3"><span class="shield">3</span>11/4</a></li>
+  <li><a href="#day4" class="n4"><span class="shield">4</span>11/5</a></li>
+  <li><a href="#day5" class="n5"><span class="shield">5</span>11/6</a></li>
+  <li><a href="#swap">일정 변경 대안</a></li>
+  <li><a href="#regions">외곽 맛집 모음</a></li>
+  <li><a href="#sources">출처</a></li>
+</ul><a class="jdetail" href="#detail">상세 일정 바로가기 ↓</a></nav>
+<div class="wide">
+
+<section class="block" id="map">
+  <h2>전체 경로</h2>
+  <figure class="map">
+    <div class="mapgrid">
+      <a href="map/main.jpg" target="_blank" rel="noopener"><img src="map/main.jpg" alt="홋카이도 전체 지도: 신치토세 공항과 삿포로 숙소, 날짜별 색으로 구분한 5일 경로, 첫날 들르는 시코쓰호, 빈 원으로 표시한 외곽 맛집 지역" width="2083" height="1747"></a>
+      <a href="map/sapporo.jpg" target="_blank" rel="noopener"><img src="map/sapporo.jpg" alt="삿포로 시내 확대 지도" width="991" height="916" loading="lazy"></a>
+    </div>
+    <figcaption>선 색 = 날짜 (주황 11/2 · 파랑 11/3 · 초록 11/4 · 보라 11/5 · 회색 11/6). 빈 원 = 대안 일정 지역(소운쿄·오비히로) + 외곽 맛집 지역(니세코·요이치·이시카리·마시케·소라치·나가누마). 날짜별 자세한 지도는 각 날 시간표 위에 있음. 숙소는 北18条역 근처로 대략 찍었음.</figcaption>
+  </figure>
+</section>
+
+<section class="block" id="weather">
+  <h2>날씨로 정한 순서</h2>
+  <p class="sub">11/1 일본 기상청 예보(11시)랑 시간별 예보로 다시 봤음. 굵은 테두리 칸 = 그날 가는 곳. 예보 신뢰도가 낮은 편(B–C)이라 전날 밤에 한 번 더 확인. 예보 바뀌면 <a href="#swap">일정 변경 대안</a> C안 보면 됨.</p>
+  
+  {{WX}}
+  <div class="legend"><span><i class="w-s"></i>맑음</span><span><i class="w-c"></i>흐림</span><span><i class="w-r"></i>비</span><span><i class="w-n"></i>눈·비</span></div>
+</section>
+
+<section class="block" id="booking">
+  <h2>미리 할 것</h2>
+  <details class="fold secfold"><summary><span class="sumt">미리 할 것 펼쳐 보기</span><span class="sums">예약·준비 {{BOOKN}}가지 · 공항→렌터카 가는 길 · 숙소 가는 길·체크인 · 대안으로 바꿀 때 예약 {{ALTN}}곳</span></summary>
+  <p class="sub">출발 전에 예약·준비할 것, 당일 아침에 확인할 것 순서대로 모았음. 체크 표시는 이 폰(브라우저)에만 저장됨. 전화번호는 길게 눌러서 복사. 대안으로 바꿀 때 필요한 예약은 맨 아래 접힌 칸에 따로 있음.</p>
+  {{BOOK}}
+  </details>
+</section>
+
+<section class="block" id="changes">
+  <h2>원래 일정에서 바뀐 점</h2>
+  <details class="fold secfold"><summary><span class="sumt">바뀐 점 펼쳐 보기</span><span class="sums">처음 PDF 18곳이 어디로 갔는지 · 날짜별 비교</span></summary>
+  <p class="sub">처음 PDF 일정표(11/2–11/4, 18곳)가 지금 어디로 갔는지 정리했음. 위는 요약, "날짜별 변경점 보기" 펼치면 원래 PDF랑 지금 일정 나란히 나옴. <b>자세한 시간표는 아래 "날짜별 시간표"</b>에 있음.</p>
+  {{CHANGES}}
+  </details>
+</section>
+
+<section class="block" id="plan">
+  <h2>날짜별 시간표</h2>
+  <div class="badgekey">
+    <span><span class="badge orig">기존 #번호</span> 동재·현준·경일 회의에서 정한 일정표(PDF)에 있던 곳</span>
+    <span><span class="badge new">신규</span> 이번에 새로 넣은 곳</span>
+    <span><span class="mn" style="--dc:var(--accent)">3</span> 그날 지도의 번호</span>
+  </div>
+  <ul class="subl">
+    <li>평점은 10/30 기준. 타베로그 3.5↑ 상위권, 3.6↑ 지역 최상위권.</li>
+    <li>음식 사진은 가게마다 2–3장 (옆으로 밀면 더 있음).</li>
+    <li>사진은 다 그 가게 실제 사진임. 더 보고 싶으면 카드의 '실제 가게 사진 보기' 누르면 됨.</li>
+    <li>대안 맛집·자유시간 추천은 누르면 펼쳐짐.</li>
+  </ul>
+  {{EATLIST}}
+</section>
+</div>
+
+<div class="wrap">
+{{DAYS}}
+</div>
+
+<div class="wide">
+<section class="block" id="swap">
+  <h2>일정 변경 대안</h2>
+  <p class="sub">예보가 바뀌거나 다른 데 가 보고 싶을 때 하루(E·F는 반나절)를 바꾸는 대안 7개(A–G). 삿포로 시내 보고 싶으면 F(11/2 오후)나 G(11/5 하루). 제목 누르면 요약 나옴 — 윗줄 지금 일정, 아랫줄 바꾼 뒤. 진한 칸만 바뀌는 날. 맨 아래 <b>"바뀌는 날 상세 일정"</b> 누르면 시간표·맛집·지도 다 나옴. 흐린 "그대로" 줄은 원래 일정이랑 같은 부분.</p>
+  {{SCEN}}
+  <p class="scennote">외곽 두 지역은 대안에서 뺐음. <b>이시카리·마시케·루모이 해안</b>: 왕복 4시간 넘고, 10/28에 국도 231 파도로 통제됐었고, 우니 시즌도 끝남. <b>소라치·나가누마</b>: 味道広路는 일본어 전화 예약만 되고 유바리 박물관도 11/3까지라, 하루 쓰기보다 11/5 귀갓길에 들르는 게 나음.</p>
+</section>
+
+
+<section class="block" id="regions">
+  <h2>외곽 맛집 모음</h2>
+  <p class="sub"><b>5일 시간표랑 별개인 참고 목록.</b> 삿포로 밖 동네마다 꼭 먹어볼 곳 4–5곳씩 골랐음(시간표에 이미 있는 가게는 뺐음). 카드 아래 날짜(11/2–11/5) = 그 가게 여는 날.</p>
+  <div class="warnbox"><b>11월 초라 문 닫는 곳 많음</b><ul><li>旭山動物園 11/4–11/10 휴원</li><li>비에이 아스페르주·비블레 겨울 휴업</li><li>닝구르테라스·신후라노 프린스 11/4–26 휴업</li><li>도카치 Tuka 11/3–4 휴무</li><li>望羊蹄 11/4 휴무</li><li>구로다케 로프웨이 11/9부터 운휴</li><li>苔の洞門 견학 중지</li><li>丸駒温泉 당일 입욕 금–일만</li><li>니세코 파노라마라인(神仙沼) 동계 통행금지</li><li>神威岬 곶 끝 산책로 통행금지</li><li>샤코탄 우니 식당 시즌 종료</li><li>오후유곶 전망대 폐쇄</li><li>夕張 석탄박물관·마시케 구 혼마가 11/3이 마지막 날</li></ul></div>
+  {{REGIONS}}
+</section>
+
+<section class="block" id="sources">
+  <h2>출처와 메모</h2>
+  <div class="notes">
+    <ul>
+      <li>날씨: 일본 기상청 단기·주간예보 2026-11-01 11:00 발표, 시간별 예보 모델 Open-Meteo(JMA·ECMWF) 2026-11-01 13시 조회 (10/31까지는 tenki.jp 10일 예보).</li>
+      <li>평점·영업시간: 구글 지도, 타베로그, 가게 공식 사이트·SNS (10/30 기준). 가격 일부는 리뷰·메뉴판 기준이라 현지랑 다를 수 있음.</li>
+      <li>시설: usuzan.hokkaido.jp, takimotokan.co.jp, takinoreien.com, asahidake.hokkaido.jp, rinyu.co.jp, manabegarden.jp, banei-keiba.or.jp, hokkaido-airports.com 등.</li>
+      <li>지도: © OpenStreetMap contributors (ODbL), 경로 OSRM. 실제 길안내는 '길안내' 버튼(구글맵)으로. 구글맵 경로 버튼은 폰 한도(경유지 3곳) 때문에 나눠 놨음.</li>
+      <li>운전자는 술 한 모금도 안 됨 (일본은 조금만 마셔도 처벌). 해 진 뒤 산길·터널 출구 블랙아이스 주의.</li>
+    </ul>
+    <details class="credd"><summary>사진 출처 보기 (가게 이름 — 파일 · 찍은 사람 · 라이선스)</summary>
+    {{CREDITS}}
+    </details>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.book input[type=checkbox]');
+  var KEY='hk-trip-book';
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  boxes.forEach(function(b){
+    if(saved[b.id]) b.checked=true;
+    b.addEventListener('change',function(){
+      saved[b.id]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  function openFor(h){
+    if(!h||h.charAt(0)!=='#') return;
+    var el=null; try{el=document.getElementById(decodeURIComponent(h.slice(1)));}catch(e){}
+    if(!el) return;
+    var d=el.querySelector(':scope > details.fold')||el.closest('details');
+    while(d){ d.open=true; d=d.parentElement&&d.parentElement.closest('details'); }
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(a) openFor(a.getAttribute('href'));
+    var btn=e.target.closest&&e.target.closest('.foldbar button');
+    if(btn){ var sc=btn.parentElement.getAttribute('data-scope'), op=btn.getAttribute('data-fold')==='open';
+      document.querySelectorAll('details.'+sc).forEach(function(x){x.open=op;}); }
+  });
+  // v19.5: 펼친 내용 끝에 "접기" 버튼 — 누르면 가장 가까운 details만 닫고 그 제목이 보이게 스크롤
+  var SKIP='details.script';
+  document.querySelectorAll('details').forEach(function(d){
+    if(d.matches(SKIP)||!d.querySelector(':scope > summary')) return;
+    var outer=!!d.querySelector('details');
+    var bar=document.createElement('div'); bar.className='closebar'+(outer?' outer':'');
+    var b=document.createElement('button'); b.type='button'; b.className='closebtn'; b.textContent=outer?'이 묶음 전체 접기 ▴':'접기 ▴';
+    bar.appendChild(b); d.appendChild(bar);
+  });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.closebtn'); if(!b) return;
+    e.preventDefault(); var d=b.closest('details'); if(!d) return;
+    d.open=false; var sm=d.querySelector(':scope > summary');
+    var top=(sm||d).getBoundingClientRect().top;
+    if(top<70||top>innerHeight-40) window.scrollTo({top:top+scrollY-80,left:0,behavior:'instant'});
+  });
+  // v19.6 문서 지도: 지금 보는 곳 강조 + 좁은 화면 목차 버튼
+  (function(){
+    var navs=[].slice.call(document.querySelectorAll('.sidenav, .tocpanel'));
+    var links=[].slice.call(document.querySelectorAll('.sidenav a'));
+    var targets=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+    var ticking=false;
+    function upd(){ ticking=false; var cur=-1;
+      for(var i=0;i<targets.length;i++){ var t=targets[i]; if(!t) continue; if(t.getBoundingClientRect().top<=Math.max(160,innerHeight*0.3)) cur=i; }
+      navs.forEach(function(n){ [].forEach.call(n.querySelectorAll('a'),function(a,i){ a.classList.toggle('on', i===cur); }); });
+      var sn=document.querySelector('.sidenav'), on=sn&&sn.querySelector('a.on');
+      if(on&&getComputedStyle(sn).display!=='none'){ var r=on.getBoundingClientRect(), s=sn.getBoundingClientRect(); if(r.top<s.top+40||r.bottom>s.bottom-20) sn.scrollTop+=(r.top-s.top)-s.height/2; }
+    }
+    window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(upd); } },{passive:true});
+    window.addEventListener('resize',upd); document.addEventListener('toggle',upd,true); upd();
+    var btn=document.querySelector('.tocbtn'), pan=document.getElementById('tocpanel');
+    function setp(o){ if(!pan) return; pan.hidden=!o; btn.setAttribute('aria-expanded',o?'true':'false'); }
+    if(btn) btn.addEventListener('click',function(){ setp(pan.hidden); });
+    // v19.7: 아래로 읽어 내려갈 때는 목차 버튼을 숨겨 카드 오른쪽 "펼치기"를 가리지 않게, 위로 올리면 다시 보임
+    if(btn){ var ly=scrollY; window.addEventListener('scroll',function(){ var y=scrollY;
+      if(pan&&!pan.hidden){ ly=y; return; }
+      // v19.9f: 목차 버튼은 스크롤해도 숨기지 않음 (사용자 요청)
+      if(Math.abs(y-ly)>8) ly=y; },{passive:true}); }
+    // 문서 지도 클릭: 펼친 뒤 사진이 늦게 뜨며 위치가 밀려도 제자리로 다시 맞춤 + 바로 강조
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('.sidenav a, .tocpanel a'); if(!a) return;
+      var id=a.getAttribute('href').slice(1), el=document.getElementById(id); if(!el) return;
+      e.preventDefault(); openFor('#'+id);
+      try{history.replaceState(null,'','#'+id);}catch(_){}
+      // v19.7: 사진이 늦게 떠서 위치가 밀릴 때만 다시 맞추고, 그 사이 사용자가 화면을 만지거나 굴리면 바로 멈춤
+      var moved=false, stop=function(){ moved=true; };
+      ['touchstart','wheel','keydown','pointerdown'].forEach(function(t){ window.addEventListener(t,stop,{once:true,passive:true,capture:true}); });
+      var go=function(){ if(moved) return; var t=el.getBoundingClientRect().top; if(Math.abs(t-(parseFloat(getComputedStyle(el).scrollMarginTop)||0))>4) el.scrollIntoView({block:'start',behavior:'instant'}); };
+      el.scrollIntoView({block:'start',behavior:'instant'}); setTimeout(go,300); setTimeout(go,900);
+      navs.forEach(function(n){ [].forEach.call(n.querySelectorAll('a'),function(x){ x.classList.toggle('on', x.getAttribute('href')==='#'+id); }); });
+    });
+    document.addEventListener('click',function(e){
+      var c=e.target.closest?e.target:null; if(!c) return;
+      if(c.closest('.tocx')||c.closest('.tocpanel a')) setp(false);
+      else if(pan&&!pan.hidden&&!c.closest('.tocpanel')&&!c.closest('.tocbtn')){
+        // v19.7: 목차를 닫으려고 바깥을 누른 탭이 밑에 있는 카드·링크까지 눌러 버리던 문제 → 닫기만 함
+        e.preventDefault(); e.stopPropagation(); setp(false); }
+    },true);
+  })();
+  // v19.7: 화면이 아직 움직이는 중(스크롤 직후 0.25초)에 손가락으로 누른 탭은 펼치기·접기로 받지 않음
+  (function(){
+    var last=0, pt='mouse';
+    window.addEventListener('scroll',function(){ last=Date.now(); },{passive:true});
+    window.addEventListener('pointerdown',function(e){ pt=e.pointerType||'mouse'; },{passive:true,capture:true});
+    document.addEventListener('click',function(e){
+      if(pt!=='touch'||Date.now()-last>250) return;
+      var t=e.target.closest&&e.target.closest('summary, .closebtn, .foldbar button');
+      if(t){ e.preventDefault(); e.stopPropagation(); }
+    },true);
+  })();
+  // v19.8 문서 지도 "모두 접기": 펼쳐진 것을 전부 접고, 보던 곳(문서 지도에서 강조된 곳) 제목으로 화면을 맞춤
+  (function(){
+    var btns=[].slice.call(document.querySelectorAll('.foldall'));
+    function openList(){ return [].filter.call(document.querySelectorAll('details[open]'),function(d){ return !!d.querySelector(':scope > summary'); }); }
+    function upd(){ var n=openList().length; btns.forEach(function(b){ b.disabled=!n; b.querySelector('.fac').textContent=n?' '+n:''; }); }
+    document.addEventListener('toggle',upd,true); upd();
+    btns.forEach(function(b){ b.addEventListener('click',function(e){
+      e.preventDefault(); e.stopPropagation();
+      var on=document.querySelector('.sidenav a.on')||document.querySelector('.tocpanel a.on');
+      var tgt=on&&document.getElementById(on.getAttribute('href').slice(1));
+      openList().forEach(function(d){ d.open=false; });
+      if(tgt){ var top=(tgt.querySelector(':scope > details > summary')||tgt).getBoundingClientRect().top; window.scrollTo({top:Math.max(0,top+scrollY-80),left:0,behavior:'instant'}); }
+      var pan=document.getElementById('tocpanel'), tb=document.querySelector('.tocbtn');
+      if(pan&&!pan.hidden&&b.closest('.tocpanel')){ pan.hidden=true; if(tb) tb.setAttribute('aria-expanded','false'); }
+      upd();
+    }); });
+  })();
+  // v19.9 문서 지도 자체 접기/펼치기 (넓은 화면) — 상태는 이 브라우저에만 기억
+  (function(){
+    var root=document.documentElement, op=document.querySelector('.snopen'), cl=document.querySelector('.snclose');
+    function set(closed){ root.classList.toggle('navclosed',closed); if(op) op.setAttribute('aria-expanded',closed?'false':'true');
+      try{localStorage.setItem('hk-nav-closed',closed?'1':'0');}catch(e){} }
+    if(op) op.setAttribute('aria-expanded',root.classList.contains('navclosed')?'false':'true');
+    if(cl) cl.addEventListener('click',function(e){ e.preventDefault(); set(true); });
+    var ed=document.querySelector('.snedge'); if(ed) ed.addEventListener('click',function(e){ e.preventDefault(); set(true); });
+    if(op) op.addEventListener('click',function(e){ e.preventDefault(); set(false); });
+  })();
+  // v19.9g 옆으로 넘치는 칸(표·위쪽 바로가기 줄)에 "옆으로 밀어서 보기" 안내 — 넘칠 때만 보임
+  (function(){
+    var sel='.tblwrap';
+    function upd(){ [].forEach.call(document.querySelectorAll(sel),function(el){
+      var h=el.previousElementSibling&&el.previousElementSibling.classList.contains('swipehint')?el.previousElementSibling:null;
+      var over=el.scrollWidth>el.clientWidth+4;
+      if(over&&!h){ h=document.createElement('p'); h.className='swipehint'; h.innerHTML='<b>↔</b> 옆으로 밀어서 보세요'; el.parentNode.insertBefore(h,el); }
+      if(h) h.hidden=!over; el.classList.toggle('hscroll',over);
+      if(over&&!el._sw){ el._sw=1; el.addEventListener('scroll',function(){ el.classList.toggle('atend',el.scrollLeft+el.clientWidth>=el.scrollWidth-4); },{passive:true}); }
+    }); }
+    window.addEventListener('resize',upd); document.addEventListener('toggle',function(){ setTimeout(upd,30); },true); upd(); setTimeout(upd,800);
+  })();
+  // v19.11 상세 일정(DAY 1–5)을 보고 있을 때는 "상세 일정 바로가기" 숨김
+  (function(){
+    var jds=[].slice.call(document.querySelectorAll('.jdetail')), st=document.getElementById('detail'), en=document.getElementById('swap'); if(!jds.length||!st||!en) return;
+    var tk=false; function upd(){ tk=false; var y=innerHeight*0.4, a=st.getBoundingClientRect().top, z=en.getBoundingClientRect().top;
+      jds.forEach(function(jd){ jd.classList.toggle('jdhide', a<=y && z>y); }); }
+    window.addEventListener('scroll',function(){ if(!tk){tk=true;requestAnimationFrame(upd);} },{passive:true}); window.addEventListener('resize',upd); document.addEventListener('toggle',upd,true); upd();
+  })();
+  window.addEventListener('hashchange',function(){openFor(location.hash);});
+  if(location.hash) openFor(location.hash);
+})();
+</script>

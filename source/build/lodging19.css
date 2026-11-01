@@ -1,0 +1,24 @@
+/* v19.2 숙소 체크인·가는 길 */
+.stay{display:grid;gap:8px;min-width:0}
+.stay .staysum{margin:0;font-size:13.5px;line-height:1.6}
+.staylinks{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:6px;vertical-align:1px}
+details.staysec{border:1px solid var(--line);border-radius:10px;background:var(--card);min-width:0}
+details.staysec>summary{padding:9px 12px;font-weight:700;font-size:14px;cursor:pointer}
+details.staysec>.staybody{padding:2px 14px 12px;display:grid;gap:8px;min-width:0;font-size:13.5px;line-height:1.65}
+.staybody h5{margin:6px 0 0;font-size:13.5px;font-weight:900;color:var(--ink)}
+.staybody p,.staybody ul,.staybody ol{margin:0}
+.staybody ul,.staybody ol{padding-left:1.3em;display:grid;gap:3px}
+.staybody .num{font-family:var(--f-mono);font-weight:600;overflow-wrap:anywhere}
+.stayaddr{overflow-wrap:anywhere}
+.stayfigs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;min-width:0}
+.stayfigs figure{margin:0;border-radius:8px;overflow:hidden;background:var(--soft);min-width:0}
+.stayfigs img{display:block;width:100%;height:auto;max-width:100%}
+.stayfigs figcaption{padding:5px 8px 6px;font-size:12px;color:var(--muted);line-height:1.45}
+@media (max-width:560px){
+  .stayfigs{grid-template-columns:minmax(0,1fr)}
+  details.staysec>.staybody{padding:2px 10px 10px}
+  .staylinks{display:flex;margin:4px 0 0}
+}
+/* v19.2 통합: .book li 카드 스타일이 숙소 안내 안 목록에 번지지 않게 */
+.book .stay li{display:list-item;padding:0;border:0;border-radius:0;background:none;gap:0;line-height:1.6}
+.book .stay ol,.book .stay ul{list-style:revert}

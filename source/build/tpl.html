@@ -1,0 +1,335 @@
+<title>홋카이도 맛집 드라이브</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+JP:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700;900&display=swap">
+<style>
+/* Layout: one reading column of road-trip "drive notes"; full-width route map up top; each day is a time rail coloured like its map line, with Japanese route-shield day markers. */
+:root{
+  --paper:#F3F6F7; --card:#FFFFFF; --ink:#15202A; --muted:#5A6873; --line:#D8E0E5; --soft:#E9EEF1;
+  --accent:#0B6873; --warn:#B3362B; --ok:#2E7A48;
+  --d1:#D9560B; --d2:#1A72C4; --d3:#2B8F3F; --d4:#8F33A6; --d5:#4A535B;
+  --sun:#FFF4CF; --cloud:#ECEFF1; --rain:#DCEBFA; --snow:#ECE6F7; --on-dc:#FFFFFF;
+  --f-display:"Noto Serif KR","Nanum Myeongjo",Georgia,serif;
+  --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-ja:"Noto Sans JP","Hiragino Sans","Yu Gothic","Noto Sans KR",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1418; --card:#161F25; --ink:#E5ECEF; --muted:#9AA9B3; --line:#2B3740; --soft:#1C262D;
+  --accent:#55B8C1; --warn:#F07A6D; --ok:#6CC48A;
+  --d1:#FF8B4D; --d2:#5BA8EE; --d3:#5CC274; --d4:#C985DD; --d5:#A6AFB7;
+  --sun:#3A3318; --cloud:#222B31; --rain:#17283A; --snow:#2A2340; --on-dc:#0E1418; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1418; --card:#161F25; --ink:#E5ECEF; --muted:#9AA9B3; --line:#2B3740; --soft:#1C262D;
+  --accent:#55B8C1; --warn:#F07A6D; --ok:#6CC48A;
+  --d1:#FF8B4D; --d2:#5BA8EE; --d3:#5CC274; --d4:#C985DD; --d5:#A6AFB7;
+  --sun:#3A3318; --cloud:#222B31; --rain:#17283A; --snow:#2A2340; --on-dc:#0E1418; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+[lang="ja"]{font-family:var(--f-ja)}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.25}
+h4{margin:0}
+p{margin:0}
+.wrap{max-width:920px;margin:0 auto}
+.wide{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.num,time,.rt,.dstats{font-variant-numeric:tabular-nums}
+
+/* header */
+.top{padding-block:32px 20px;display:grid;gap:14px}
+.top h1{font-size:clamp(30px,6vw,52px);font-weight:900;letter-spacing:-.01em}
+.top .lead{max-width:62ch;color:var(--muted);font-size:16px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:6px 0 0;padding:0}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.facts dt{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em}
+.facts dd{margin:2px 0 0;font-weight:500;font-size:14px}
+
+/* nav */
+nav.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:8px max(16px,env(safe-area-inset-left,0px))}
+nav.jump ul{list-style:none;margin:0 auto;padding:0;display:flex;gap:6px;overflow-x:auto;max-width:1240px;scrollbar-width:none}
+nav.jump a{display:flex;align-items:center;gap:6px;white-space:nowrap;text-decoration:none;color:var(--ink);font-size:13px;font-weight:500;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.jump a:hover{border-color:var(--accent)}
+.shield{display:inline-grid;place-items:center;width:20px;height:22px;background:var(--dc,var(--accent));color:var(--on-dc);font:600 12px/1 var(--f-mono);clip-path:polygon(0 0,100% 0,100% 64%,50% 100%,0 64%);padding-bottom:4px}
+.n1{--dc:var(--d1)}.n2{--dc:var(--d2)}.n3{--dc:var(--d3)}.n4{--dc:var(--d4)}.n5{--dc:var(--d5)}
+
+section.block{padding-block:36px 8px;display:grid;gap:14px}
+section.block>*{min-width:0}
+.notes,.credits{overflow-wrap:anywhere}
+.notes li,.notes>*,.cb>*,.it-b>*,.alt>*,.rbrief>*{min-width:0}
+section.block>h2{font-size:clamp(22px,3.4vw,30px);font-weight:900}
+section.block>.sub{color:var(--muted);max-width:66ch}
+
+/* map */
+figure.map{margin:0;display:grid;gap:10px}
+figure.map a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+figure.map img{display:block;width:100%;height:auto}
+.mapgrid{display:grid;grid-template-columns:2.2fr 1fr;gap:12px;align-items:start}
+@media (max-width:760px){.mapgrid{grid-template-columns:1fr}}
+figure.map figcaption{font-size:13px;color:var(--muted)}
+
+/* tables */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tr:last-child th,tr:last-child td{border-bottom:0}
+thead th{font-size:12px;color:var(--muted);font-weight:700;background:var(--soft)}
+thead th small{display:block;font-weight:500;font-size:11px}
+.wxt{min-width:720px}
+.wxt tbody th{white-space:nowrap;font-weight:700}
+.w-s{background:var(--sun)}.w-c{background:var(--cloud)}.w-r{background:var(--rain)}.w-n{background:var(--snow)}
+.wxt td.pick{box-shadow:inset 0 0 0 2px var(--accent);font-weight:700}
+.wxt td.plan{font-weight:700;color:var(--accent);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid var(--line)}
+.drop{min-width:640px}
+.drop td:first-child{white-space:nowrap;color:var(--muted)}
+
+/* booking */
+.book{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.book li{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.book input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.book label{display:grid;gap:2px;min-width:0;font-size:14px}
+.book label span{color:var(--muted);font-size:13px}
+.book input:checked+label b{text-decoration:line-through;color:var(--muted)}
+.book .lnk{margin-left:4px}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
+.badge.orig{background:var(--ink);color:var(--paper)}
+.badge.new{border:1.5px solid var(--accent);color:var(--accent)}
+.badge.opt{border:1.5px dashed var(--muted);color:var(--muted)}
+.badge.inplan{background:var(--accent);color:var(--card)}
+.badgekey{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:13px;color:var(--muted);align-items:center}
+.badgekey span{display:inline-flex;gap:6px;align-items:center}
+
+/* days */
+.day{--dc:var(--d1);padding-block:40px 6px;display:grid;gap:18px;scroll-margin-top:60px}
+.day.d1{--dc:var(--d1)}.day.d2{--dc:var(--d2)}.day.d3{--dc:var(--d3)}.day.d4{--dc:var(--d4)}.day.d5{--dc:var(--d5)}
+.dh{display:grid;gap:8px;border-top:4px solid var(--dc);padding-top:16px}
+.dh .eyebrow{color:var(--dc);display:flex;align-items:center;gap:8px}
+.dh h3{font-size:clamp(22px,3.6vw,30px);font-weight:900}
+.dstats{display:flex;flex-wrap:wrap;gap:6px}
+.dstats span{font:500 12.5px var(--f-mono);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--muted);background:var(--card)}
+.dh .wx,.dh .why{font-size:14px;max-width:70ch}
+.dh b{font-size:12px;letter-spacing:.04em;color:var(--muted);margin-right:6px}
+.routes{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:700;font-size:13.5px;color:var(--on-dc);background:var(--dc);padding:7px 12px;border-radius:8px}
+.btn::before{content:"";width:8px;height:8px;border:2px solid currentColor;border-radius:50%}
+
+ol.tl{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:4px}
+ol.tl::before{content:"";position:absolute;left:61px;top:10px;bottom:10px;width:2px;background:color-mix(in srgb,var(--dc) 35%,transparent)}
+.it{display:grid;grid-template-columns:48px 28px minmax(0,1fr);align-items:start;padding-block:6px}
+.it time{font:600 14px/1.5 var(--f-mono);color:var(--ink);text-align:right;padding-top:1px}
+.it .dot{width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--dc);margin:5px auto 0;position:relative;z-index:1}
+.it.k-eat .dot{background:var(--dc)}
+.it.k-move .dot{width:8px;height:8px;border-width:2px;margin-top:7px}
+.it.k-move time,.it.k-move .it-t{color:var(--muted);font-weight:500}
+.it.k-move .it-t{font-size:13.5px}
+.it-b{display:grid;gap:6px;min-width:0}
+.it-t{font-weight:700}
+.it-s{font-size:13.5px;color:var(--muted)}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:150px minmax(0,1fr);margin-top:4px}
+.card.act{grid-template-columns:minmax(0,1fr)}
+.cb{padding:12px 14px;display:grid;gap:7px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.genre{font-size:12.5px;color:var(--muted)}
+.genre.strong{color:var(--ink);font-weight:700}
+.card h4{font-size:17px;font-weight:700;line-height:1.35}
+.card h4 small{display:block;font-family:var(--f-body);font-size:12.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.rts{display:flex;flex-wrap:wrap;gap:6px}
+.rt{font-size:13px;border-radius:6px;padding:2px 8px;background:var(--soft)}
+.rt b{font-weight:700;margin-right:4px;font-size:12px}
+.rt small{color:var(--muted);margin-left:3px}
+.rt.tb{background:color-mix(in srgb,var(--warn) 12%,var(--card))}
+.card dl{margin:0;display:grid;gap:3px;font-size:13.5px}
+.card dl div{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px}
+.card dt{color:var(--muted);font-size:12px;font-weight:700;padding-top:1px}
+.card dd{margin:0}
+.reason{background:color-mix(in srgb,var(--accent) 8%,var(--card));border-radius:8px;padding:9px 11px;display:grid;gap:3px}
+.reason b{font-size:12px;letter-spacing:.04em;color:var(--accent)}
+.reason p{font-size:13.5px;line-height:1.65}
+.tip{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:8px}
+.flist{margin:0;padding-left:18px;font-size:13.5px;display:grid;gap:2px}
+.links{display:flex;flex-wrap:wrap;gap:6px}
+.lnk{white-space:nowrap;font-size:12.5px;font-weight:700;text-decoration:none;padding:3px 9px;border-radius:6px;border:1px solid var(--line);color:var(--accent);background:var(--card)}
+.lnk:hover{border-color:var(--accent)}
+figure.ph{margin:0;position:relative;background:var(--soft);min-height:100%}
+figure.ph img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;max-width:100%}
+figure.ph figcaption{position:absolute;left:6px;bottom:6px;font-size:10.5px;color:#fff;background:rgba(0,0,0,.55);padding:1px 6px;border-radius:4px}
+figure.ph-k{display:grid;place-items:center;aspect-ratio:4/3;min-height:100%}
+figure.ph-k span{font-family:var(--f-ja);font-weight:700;font-size:56px;color:color-mix(in srgb,var(--dc,var(--accent)) 70%,var(--muted))}
+figure.ph-k figcaption{background:transparent;color:var(--muted);position:absolute}
+@media (max-width:560px){
+  .card{grid-template-columns:1fr}
+  figure.ph img,figure.ph-k{aspect-ratio:16/9}
+  ol.tl::before{left:53px}
+  .it{grid-template-columns:42px 24px minmax(0,1fr)}
+  .it time{font-size:13px}
+}
+
+/* alternatives */
+.alts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.alt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:8px;align-content:start}
+.alt h4{font-size:16px}
+.alt p{font-size:13.5px}
+.alt .cost{color:var(--muted)}
+.alt .cost b{color:var(--warn);font-size:12px;margin-right:4px}
+
+/* regions */
+.region{padding-block:30px 6px;display:grid;gap:14px;scroll-margin-top:60px}
+.rh{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:6px}
+.rh h3{font-size:clamp(20px,3vw,26px);font-weight:900}
+.rh h3 small{font-family:var(--f-body);font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
+.rmeta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.rmeta span:first-child{color:var(--accent);font-weight:700}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:12px}
+.card.rg{grid-template-columns:1fr;margin:0;align-content:start}
+.card.rg figure.ph img,.card.rg figure.ph-k{aspect-ratio:16/7}
+.award{font-size:12px;font-weight:700;color:var(--accent)}
+.dish{font-weight:500;font-size:14px}
+.why2{font-size:13.5px}
+.ops{display:flex;flex-wrap:wrap;gap:6px}
+.op{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;font-variant-numeric:tabular-nums}
+.op.ok{background:color-mix(in srgb,var(--ok) 16%,var(--card));color:var(--ok)}
+.op.no{background:color-mix(in srgb,var(--warn) 16%,var(--card));color:var(--warn)}
+.op.q{background:var(--soft);color:var(--muted)}
+.rbrief{background:var(--soft);border-radius:10px;padding:14px 16px;display:grid;gap:8px;font-size:13.5px}
+.rbrief h4{font-size:13px;letter-spacing:.04em;color:var(--muted)}
+.rbrief ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.rbrief .more{color:var(--muted)}
+
+.notes{font-size:13px;color:var(--muted);display:grid;gap:8px;max-width:76ch}
+.notes ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.credits{font-size:12.5px}
+.warnbox{border:1.5px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:14px;display:grid;gap:4px;background:var(--card)}
+.warnbox b{color:var(--warn)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="wide">
+<header class="top">
+  <p class="eyebrow">2026 · 11 · 02 MON — 11 · 06 FRI · 렌터카 4박 5일</p>
+  <h1>홋카이도 맛집 드라이브</h1>
+  <p class="lead">삿포로 북17조 숙소를 거점으로, 비가 오는 곳을 피해 날마다 지역을 바꾸는 일정입니다. 11/3 오타루 오후, 11/4 남쪽, 11/5 북쪽 설경 순서가 이번 예보에서 가장 맑습니다.</p>
+  <dl class="facts">
+    <div><dt>항공</dt><dd>LJ203 11/2 11:15 도착 · LJ204 11/6 12:15 출발</dd></div>
+    <div><dt>렌터카</dt><dd>Jnet 신치토세 · R0V66VWT · 4WD 스터드리스</dd></div>
+    <div><dt>숙소</dt><dd>FlexCella North17 B · 北18条역 근처 · 주차 1대</dd></div>
+    <div><dt>해 지는 시각</dt><dd>16:20 전후 (도카치 16:10)</dd></div>
+    <div><dt>조사 기준</dt><dd>2026-10-30 · 예보는 11/1에 다시 확인</dd></div>
+  </dl>
+</header>
+
+<nav class="jump" aria-label="바로가기"><ul>
+  <li><a href="#map">지도</a></li>
+  <li><a href="#weather">날씨</a></li>
+  <li><a href="#booking">예약할 것</a></li>
+  <li><a href="#day1" class="n1"><span class="shield">1</span>11/2</a></li>
+  <li><a href="#day2" class="n2"><span class="shield">2</span>11/3</a></li>
+  <li><a href="#day3" class="n3"><span class="shield">3</span>11/4</a></li>
+  <li><a href="#day4" class="n4"><span class="shield">4</span>11/5</a></li>
+  <li><a href="#day5" class="n5"><span class="shield">5</span>11/6</a></li>
+  <li><a href="#dropped">뺀 곳</a></li>
+  <li><a href="#alts">대안</a></li>
+  <li><a href="#regions">지역별 맛집</a></li>
+  <li><a href="#sources">출처</a></li>
+</ul></nav>
+
+<section class="block" id="map">
+  <h2>전체 경로</h2>
+  <figure class="map">
+    <div class="mapgrid">
+      <a href="map/main.jpg" target="_blank" rel="noopener"><img src="map/main.jpg" alt="홋카이도 전체 지도: 신치토세 공항과 삿포로 숙소, 날짜별 색으로 구분한 5일 경로, 대안 지역 오비히로와 소운쿄" width="2083" height="1436"></a>
+      <a href="map/sapporo.jpg" target="_blank" rel="noopener"><img src="map/sapporo.jpg" alt="삿포로 시내 확대 지도: 숙소, gop, 찻카루, 사이미, 두대불, 오카다마 공항, 스스키노" width="991" height="916" loading="lazy"></a>
+    </div>
+    <figcaption>선 색 = 날짜 (주황 11/2 · 파랑 11/3 · 초록 11/4 · 보라 11/5 · 회색 11/6). 원 안 숫자는 날짜 번호, 빈 원은 대안 지역. 지도를 누르면 크게 열립니다. 숙소 위치는 北18条역 근처로 대략 표시했습니다.</figcaption>
+  </figure>
+</section>
+
+<section class="block" id="weather">
+  <h2>날씨로 정한 순서</h2>
+  <p class="sub">tenki.jp 10일 예보와 일본 기상청 주간예보(10/30 17시 발표)를 합쳤습니다. 굵은 테두리 칸이 그날 가는 곳입니다. 기상청 신뢰도는 11/4 남쪽만 A(높음), 나머지는 C라서 출발 직전 다시 보는 게 좋습니다.</p>
+  {{WX}}
+  <div class="legend"><span><i class="w-s"></i>맑음</span><span><i class="w-c"></i>흐림</span><span><i class="w-r"></i>비</span><span><i class="w-n"></i>눈·비</span></div>
+</section>
+
+<section class="block" id="booking">
+  <h2>지금 예약할 것</h2>
+  <p class="sub">체크 표시는 이 브라우저에만 저장됩니다. 전화번호는 길게 눌러 복사하세요.</p>
+  {{BOOK}}
+</section>
+
+<section class="block" id="plan">
+  <h2>날짜별 시간표</h2>
+  <div class="badgekey">
+    <span><span class="badge orig">기존 #번호</span> 처음 일정표 PDF에 있던 곳 (PDF 번호)</span>
+    <span><span class="badge new">신규</span> 이번에 새로 넣은 곳</span>
+    <span><span class="badge opt">선택 · 신규</span> 빼도 되는 일정</span>
+  </div>
+  <p class="sub">평점은 10/30 기준. 타베로그는 3.5 이상이면 상위권, 3.6 이상이면 지역 최상위권입니다. 음식 사진은 저작권 때문에 자유 라이선스 예시 사진을 넣었고, 각 가게의 실제 사진은 '가게 사진'(타베로그)과 '구글맵' 링크에서 볼 수 있습니다. 이동 시간은 눈길 여유를 조금 더한 값입니다.</p>
+</section>
+</div>
+
+<div class="wrap">
+{{DAYS}}
+</div>
+
+<div class="wide">
+<section class="block" id="dropped">
+  <h2>PDF에서 뺀 곳</h2>
+  <p class="sub">원래 일정표에 있던 곳 중 이번 일정에 넣지 못한 곳과 이유입니다. 날씨·휴무 때문에 바꾼 부분이 대부분입니다.</p>
+  {{DROPPED}}
+</section>
+
+<section class="block" id="alts">
+  <h2>바꿔 끼울 수 있는 날</h2>
+  {{ALTS}}
+</section>
+
+<section class="block" id="regions">
+  <h2>지역별 꼭 먹어볼 곳</h2>
+  <p class="sub">외곽 4개 지역마다 구글·타베로그 평점과 일본 현지 리뷰, 여행자 후기를 함께 보고 5곳씩 골랐습니다. 지역마다 메뉴 종류가 겹치지 않게 했고, 모두 1인 ¥60,000 이하입니다. 영업 표시는 그 지역을 갈 수 있는 날짜 기준입니다.</p>
+  <div class="warnbox"><b>11월 초라 문 닫는 곳이 많습니다</b><span>旭山動物園 11/4–11/10 휴원 · 비에이 아스페르주 11/4부터 겨울 휴업 · 후라노 닝구르테라스 11/5부터 휴업 · 도카치 Tuka 11/3–4 휴무 · 望羊蹄 11/4 휴무 · 구로다케 로프웨이 11/9부터 운휴</span></div>
+  {{REGIONS}}
+</section>
+
+<section class="block" id="sources">
+  <h2>출처와 메모</h2>
+  <div class="notes">
+    <ul>
+      <li>날씨: tenki.jp 10일 예보 (삿포로·오타루·치토세·도마코마이·노보리베쓰·도야코·아사히카와·비에이·히가시카와·가미카와), 일본 기상청 주간예보 2026-10-30 17:00 발표.</li>
+      <li>평점·영업시간: Google 지도, 타베로그 각 가게 페이지, 각 가게 공식 사이트·인스타그램·X 공지 (2026-10-30 열람). 가격 일부는 2024–2026년 리뷰·메뉴판 기준이라 현지와 다를 수 있습니다.</li>
+      <li>시설: ocean-days.com, usuzan.hokkaido.jp, takimotokan.co.jp, takinoreien.com, asahidake.hokkaido.jp, rinyu.co.jp, hokkaido-koku.co.jp, manabegarden.jp, banei-keiba.or.jp 등.</li>
+      <li>지도: © OpenStreetMap contributors (ODbL), 경로 계산 OSRM. 실제 길안내는 각 '길안내' 버튼(구글맵)을 쓰세요. 구글맵 경로 버튼은 모바일 한도(경유지 3곳)에 맞춰 나눴습니다.</li>
+      <li>운전자는 음주 불가 (일본은 아주 적은 양도 처벌). 해 진 뒤 산길·터널 출구 블랙아이스 주의.</li>
+    </ul>
+    <p>음식 사진 (Wikimedia Commons, 자유 라이선스):</p>
+    {{CREDITS}}
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.book input[type=checkbox]');
+  var KEY='hk-trip-book';
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  boxes.forEach(function(b){
+    if(saved[b.id]) b.checked=true;
+    b.addEventListener('change',function(){
+      saved[b.id]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+    });
+  });
+})();
+</script>

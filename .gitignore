@@ -1,0 +1,13 @@
+# 빌드 중간 결과물 (build_all.sh가 다시 만듦)
+source/node_modules/
+source/오프라인/pwa/
+source/오프라인/out/
+source/build/site/img/
+source/build/site/hokkaido-trip.html
+source/build/ko_log.json
+source/build/inlined.json
+source/build/polish_src.json
+source/운전가이드/site/guide.html
+__pycache__/
+*.pyc
+*.bak

@@ -1,0 +1,4 @@
+# Pillow 11.2 이상: AVIF 저장 지원(공개판 사진 묶음)
+Pillow==12.3.0
+fonttools==4.66.1
+brotli==1.2.1

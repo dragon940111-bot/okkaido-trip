@@ -1,0 +1,12 @@
+{
+  "name": "okkaido-trip-source",
+  "private": true,
+  "description": "홋카이도 맛집 투어 계획 빌드용 글꼴 (오프라인판에 쓰인 글자만 잘라 넣음)",
+  "dependencies": {
+    "@fontsource/black-han-sans": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/noto-sans-jp": "5.3.1",
+    "@fontsource/noto-sans-kr": "5.3.1",
+    "@fontsource/noto-serif-kr": "5.3.1"
+  }
+}

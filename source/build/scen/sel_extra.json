@@ -1,0 +1,233 @@
+[
+[
+"pool:sweets_rokkatei",
+"x_sweets1",
+"f2",
+13,
+"마루세이 버터케이크"
+],
+[
+"pool:sweets_rokkatei",
+"x_sweets2",
+"f2",
+14,
+"딸기 프레지에 케이크"
+],
+[
+"pool:sweets_rokkatei",
+"x_sweets3",
+"f2",
+55,
+"케이크와 커피 세트"
+],
+[
+"pool:bread",
+"x_bread1",
+"f3",
+13,
+"빵집 진열대의 크루아상"
+],
+[
+"pool:bread",
+"x_bread2",
+"f3",
+4,
+"바구니에 담은 크루아상과 빵"
+],
+[
+"pool:bread",
+"x_bread3",
+"f3",
+50,
+"버터 크루아상과 라테"
+],
+[
+"a:f_akarenga",
+"x_akarenga1",
+"s7",
+5,
+"붉은 벽돌 옛 도청사"
+],
+[
+"a:f_akarenga",
+"x_akarenga2",
+"s7",
+6,
+"앞뜰 연못의 단풍"
+],
+[
+"a:f_akarenga",
+"x_akarenga3",
+"s7",
+76,
+"눈 쌓인 아카렌가 청사 · 1월"
+],
+[
+"a:f_clock",
+"x_clock1",
+"s8",
+11,
+"삿포로 시계탑 정면"
+],
+[
+"a:f_clock",
+"x_clock2",
+"s8",
+38,
+"눈 내린 시계탑"
+],
+[
+"a:f_clock",
+"x_clock3",
+"s8",
+25,
+"나무 사이의 시계탑"
+],
+[
+"pool:gelato",
+"x_gelato1",
+"f4",
+26,
+"아오이이케 앞 소프트아이스크림"
+],
+[
+"pool:gelato",
+"x_gelato2",
+"f4",
+1,
+"여러 가지 맛차 젤라토"
+],
+[
+"pool:gelato",
+"x_gelato3",
+"f4",
+39,
+"진한 우유 소프트아이스크림"
+],
+[
+"a:f_tvtower",
+"x_tvtower1",
+"s9",
+39,
+"11월의 삿포로 TV타워"
+],
+[
+"a:f_tvtower",
+"x_tvtower2",
+"s9",
+4,
+"해 질 녘 오도리 공원 · 11월"
+],
+[
+"a:f_tvtower",
+"x_tvtower3",
+"s9",
+72,
+"오도리 공원과 TV타워"
+],
+[
+"pool:soba",
+"x_soba1",
+"f5",
+43,
+"자루소바"
+],
+[
+"pool:soba",
+"x_soba2",
+"f5",
+17,
+"세이로에 담은 모리소바"
+],
+[
+"pool:soba",
+"x_soba3",
+"f5",
+24,
+"대바구니 자루소바"
+],
+[
+"pool:ramen_shoyu",
+"x_ramen1",
+"f5",
+6,
+"아사히카와 라멘"
+],
+[
+"pool:ramen_shoyu",
+"x_ramen2",
+"f5",
+3,
+"파를 듬뿍 올린 아사히카와 라멘"
+],
+[
+"pool:ramen_shoyu",
+"x_ramen3",
+"f5",
+0,
+"차슈 쇼유 라멘"
+],
+[
+"pool:french",
+"x_french1",
+"f6",
+15,
+"블루 랍스터 메인 요리"
+],
+[
+"pool:french",
+"x_french2",
+"f6",
+28,
+"관자 요리"
+],
+[
+"pool:french",
+"x_french3",
+"f6",
+11,
+"송아지 안심 로시니"
+],
+[
+"a:g_beer",
+"x_beer1",
+"s10",
+16,
+"붉은 벽돌 삿포로 맥주 박물관"
+],
+[
+"a:g_beer",
+"x_beer2",
+"s10",
+34,
+"눈 내린 맥주 박물관과 술통"
+],
+[
+"a:g_beer",
+"x_beer3",
+"s10",
+25,
+"저녁 무렵의 맥주 박물관"
+],
+[
+"pool:kaisendon",
+"x_kaisen1",
+"f7",
+20,
+"새우와 회를 올린 해산물 덮밥"
+],
+[
+"pool:kaisendon",
+"x_kaisen2",
+"f7",
+37,
+"연어·연어알 덮밥"
+],
+[
+"pool:kaisendon",
+"x_kaisen3",
+"f7",
+52,
+"성게·참치 덮밥"
+]
+]

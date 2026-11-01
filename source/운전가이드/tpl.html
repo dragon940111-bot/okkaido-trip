@@ -1,0 +1,316 @@
+<title>일본 렌터카 운전 가이드북</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+JP:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 일본 도로표지의 세계: 규제 빨강 · 지시 파랑 · 경계 노랑 · 고속도로 초록 · 아스팔트 회색. 한 장 = 한 표지판처럼 색 탭으로 구분 */
+:root{
+  --bg:#f3f4f2; --paper:#ffffff; --ink:#1b1f24; --muted:#5d646d; --line:#d9ddd8; --soft:#e9ece8;
+  --red:#c8202e; --blue:#1f5fae; --yellow:#e8b400; --green:#11794b; --asph:#3a3f45;
+  --road:#4a5058; --road-l:#f2f2f2; --ground:#dfe6d6; --zebra:#ffffff;
+  --me:#1f5fae; --ot:#8a9099; --go:#11794b;
+  --f-disp:'Black Han Sans','Noto Sans KR',sans-serif;
+  --f-body:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --f-ja:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14171a; --paper:#1c2024; --ink:#e9ecee; --muted:#9aa3ab; --line:#2f353b; --soft:#252a2f;
+  --red:#ef5562; --blue:#5b9be6; --yellow:#f2c84a; --green:#3fb37c; --asph:#c7ccd1;
+  --road:#3b4148; --road-l:#d8dadc; --ground:#22291f; --zebra:#cfd3d6;
+  --me:#5b9be6; --ot:#8a9099; --go:#3fb37c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14171a; --paper:#1c2024; --ink:#e9ecee; --muted:#9aa3ab; --line:#2f353b; --soft:#252a2f;
+  --red:#ef5562; --blue:#5b9be6; --yellow:#f2c84a; --green:#3fb37c; --asph:#c7ccd1;
+  --road:#3b4148; --road-l:#d8dadc; --ground:#22291f; --zebra:#cfd3d6;
+  --me:#5b9be6; --ot:#8a9099; --go:#3fb37c; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font:400 15.5px/1.7 var(--f-body);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--asph)}
+[lang="ja"]{font-family:var(--f-ja)}
+a{color:var(--blue)}
+code,.num{font-family:var(--f-mono);font-weight:600;letter-spacing:.02em}
+b{font-weight:700}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ── 급할 때 바 ── */
+.sos{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--asph);color:var(--bg)}
+.sos .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+.sos .wrap::-webkit-scrollbar{display:none}
+.sos .lab{font:900 12px var(--f-body);letter-spacing:.08em;flex:none;margin-right:2px;opacity:.85}
+.sos a{flex:none;text-decoration:none;color:inherit;font-size:13px;font-weight:700;border:1.5px solid currentColor;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.sos a.em{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ── 표지 ── */
+.cover{padding-block:28px 18px;display:grid;gap:14px}
+.cover .plate{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;border-radius:10px;padding:8px 14px;border:3px solid #fff;outline:2px solid var(--green);width:max-content;max-width:100%}
+.cover .plate span{font:600 12px var(--f-mono);letter-spacing:.08em}
+.cover h1{font:400 clamp(34px,8vw,56px)/1.08 var(--f-disp);letter-spacing:-.01em;text-wrap:balance;margin:0}
+.cover h1 small{display:block;font:700 clamp(15px,3.6vw,19px)/1.4 var(--f-body);color:var(--muted);margin-top:8px;letter-spacing:0}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px;color:var(--muted)}
+.facts b{color:var(--ink)}
+.rule3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.rule3 div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:2px;min-width:0}
+.rule3 b{font:400 22px/1.15 var(--f-disp)}
+.rule3 span{font-size:13px;color:var(--muted);line-height:1.45}
+@media (max-width:560px){.rule3{grid-template-columns:1fr}.rule3 div{grid-template-columns:auto 1fr;align-items:center;gap:10px}}
+
+/* ── 목차 ── */
+.toc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding-block:6px 4px}
+@media (max-width:700px){.toc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tc{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:8px;padding:8px 10px;font-weight:700;font-size:14px;line-height:1.3;min-width:0}
+.tc span{font:600 12px var(--f-mono);color:var(--c)}
+.c-red{--c:var(--red)} .c-blue{--c:var(--blue)} .c-yellow{--c:var(--yellow)} .c-green{--c:var(--green)}
+
+/* ── 옆 문서지도 (넓은 화면) ── */
+.side{display:none}
+@media (min-width:1180px){
+  body{padding-left:216px}
+  .side{display:block;position:fixed;top:calc(56px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));width:190px;z-index:5;max-height:calc(100vh - 70px);overflow:auto}
+  .side p{font:900 11px var(--f-body);letter-spacing:.12em;color:var(--muted);margin:0 0 6px 10px}
+  .side a{display:flex;gap:8px;align-items:baseline;text-decoration:none;color:var(--muted);font-size:13.5px;font-weight:500;padding:5px 10px;border-left:3px solid transparent;border-radius:0 6px 6px 0}
+  .side a span{font:600 11px var(--f-mono);color:var(--c)}
+  .side a:hover{color:var(--ink);background:var(--soft)}
+  .side a.on{color:var(--ink);font-weight:700;border-left-color:var(--c);background:var(--paper)}
+  .tocbtn,.tocpop{display:none!important}
+}
+/* 좁은 화면: 목차 버튼 */
+.tocbtn{position:fixed;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:25;background:var(--asph);color:var(--bg);border:0;border-radius:999px;padding:10px 16px;font:700 14px var(--f-body);box-shadow:0 4px 14px rgb(0 0 0 / .25);cursor:pointer}
+.tocpop{position:fixed;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(62px + env(safe-area-inset-bottom,0px));z-index:25;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:8px;display:grid;gap:2px;width:min(260px,calc(100vw - 28px));box-shadow:0 8px 28px rgb(0 0 0 / .22)}
+.tocpop[hidden]{display:none!important}
+.tocpop a{display:flex;gap:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:14px;padding:7px 8px;border-radius:6px}
+.tocpop a span{font:600 12px var(--f-mono);color:var(--c)}
+.tocpop a:hover{background:var(--soft)}
+
+/* ── 장 ── */
+main{display:grid;gap:12px;padding-block:14px 40px}
+.ch{scroll-margin-top:64px}
+details.chd{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:14px;min-width:0}
+details.chd>summary{list-style:none;cursor:pointer;padding:14px 16px 12px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center}
+details.chd>summary::-webkit-details-marker{display:none}
+.chn{grid-row:1;font:400 30px/1 var(--f-disp);color:var(--c)}
+.cht{font:400 clamp(21px,4.6vw,26px)/1.2 var(--f-disp);text-wrap:balance}
+.sum3{grid-column:1/-1;margin:4px 0 0;padding:10px 12px 10px 28px;background:var(--soft);border-radius:10px;display:grid;gap:3px;font-size:14px;line-height:1.5}
+.sum3::before{content:"한눈에";display:block;margin:0 0 2px -16px;font:900 11px var(--f-body);letter-spacing:.12em;color:var(--c)}
+.opn{grid-column:1/-1;justify-self:start;font:700 12.5px var(--f-body);color:var(--c);border:1.5px solid var(--c);border-radius:999px;padding:1px 10px;margin-top:2px}
+.opn::after{content:"펼치기 ▾"}
+details.chd[open] .opn::after{content:"접는 버튼은 장 끝에 ▾"}
+details.chd[open] .opn{border-style:dashed;opacity:.75}
+.chb{padding:4px 16px 16px;display:grid;gap:14px;min-width:0}
+.chb>*{min-width:0;margin:0}
+.closebtn{justify-self:center;background:transparent;color:var(--c);border:1.5px solid var(--c);border-radius:999px;padding:5px 16px;font:700 13px var(--f-body);cursor:pointer;display:inline-flex;gap:6px;align-items:baseline}
+.closebtn span{font-weight:500;color:var(--muted);font-size:12px}
+.closebtn:hover{background:var(--soft)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.subh{font:400 19px/1.3 var(--f-disp);margin:6px 0 0;display:flex;gap:8px;align-items:center}
+.subh::before{content:"";width:12px;height:12px;background:var(--c);border-radius:3px;flex:none}
+
+/* 표 */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:420px}
+th{background:var(--soft);text-align:left;font-weight:700;font-size:12.5px;color:var(--muted);padding:8px 10px;white-space:nowrap}
+td{border-top:1px solid var(--line);padding:9px 10px;vertical-align:top;line-height:1.55}
+td:first-child{font-weight:700}
+table.jpt td:first-child{font-weight:500;white-space:nowrap}
+
+/* 노트 카드 */
+.note{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;border-radius:10px;padding:11px 13px;font-size:14.5px;line-height:1.6}
+.nlab{font:900 12px var(--f-body);border-radius:4px;padding:2px 7px;color:#fff;white-space:nowrap}
+.n-warn{background:color-mix(in srgb,var(--red) 10%,var(--paper));border:1px solid color-mix(in srgb,var(--red) 35%,var(--line))}
+.n-warn .nlab{background:var(--red)}
+.n-tip{background:color-mix(in srgb,var(--yellow) 14%,var(--paper));border:1px solid color-mix(in srgb,var(--yellow) 45%,var(--line))}
+.n-tip .nlab{background:var(--yellow);color:#1b1f24}
+.n-ok{background:color-mix(in srgb,var(--green) 10%,var(--paper));border:1px solid color-mix(in srgb,var(--green) 35%,var(--line))}
+.n-ok .nlab{background:var(--green)}
+
+ul.bl,ul.chk{margin:0;padding-left:1.25em;display:grid;gap:6px}
+ul.chk{list-style:none;padding:0}
+ul.chk li{position:relative;padding-left:26px}
+ul.chk li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border:2px solid var(--c);border-radius:4px}
+ol.nl{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:7px}
+ol.nl li{counter-increment:s;position:relative;padding-left:34px;min-height:24px;overflow-wrap:anywhere}
+ol.nl li::before{content:counter(s);position:absolute;left:0;top:2px;font:600 13px/24px var(--f-mono);text-align:center;width:24px;height:24px;border-radius:50%;background:var(--c);color:#fff}
+
+/* 속도 · 계산 타일 */
+.speeds,.calc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (max-width:560px){.speeds,.calc{grid-template-columns:1fr}}
+.speeds div{display:grid;grid-template-columns:auto auto 1fr;align-items:baseline;gap:4px 6px;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.speeds b{font:400 40px/1 var(--f-disp);color:var(--blue);font-variant-numeric:tabular-nums}
+.speeds span{font:600 12px var(--f-mono);color:var(--muted)}
+.speeds p{grid-column:1/-1;margin:0;font-size:13.5px}
+.speeds .hot b{color:var(--red)}
+.calc div{display:grid;gap:2px;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.calc span{font-size:13px;color:var(--muted)}
+.calc b{font:400 26px/1.1 var(--f-disp);font-variant-numeric:tabular-nums}
+.calc small{font:500 12px var(--f-mono);color:var(--muted)}
+.calc .hot{border-color:var(--red)} .calc .hot b{color:var(--red)}
+
+/* 표지판 */
+.signs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:700px){.signs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sg{display:grid;justify-items:center;text-align:center;gap:2px;background:var(--soft);border-radius:12px;padding:12px 8px;min-width:0}
+.sgi svg{width:96px;height:96px;display:block}
+.sgn{margin:4px 0 0;font-weight:700;font-size:14.5px;line-height:1.3}
+.sgj{margin:0;font-size:12.5px;color:var(--muted)}
+.sgm{margin:2px 0 0;font-size:13px;line-height:1.45}
+
+/* 상황 그림 */
+.sits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.sits{grid-template-columns:1fr}}
+.sit{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);display:grid;min-width:0}
+.sit-h{padding:9px 12px;font-weight:700;font-size:15px;display:flex;gap:8px;align-items:baseline;border-bottom:1px solid var(--line)}
+.fno{font:600 11.5px var(--f-mono);color:var(--c);white-space:nowrap}
+.sit-b{display:grid;gap:8px;padding:0 0 10px}
+.sit-svg svg{display:block;width:100%;height:auto}
+.steps{margin:0 12px;padding-left:1.2em;display:grid;gap:4px;font-size:14px;line-height:1.55}
+/* 그림 안 색 */
+.fig .ground{fill:var(--ground)} .fig .road{fill:var(--road)} .fig .slope{fill:color-mix(in srgb,var(--ground) 70%,var(--asph))}
+.fig .cl{stroke:var(--yellow);stroke-width:2.5;stroke-dasharray:10 8;fill:none}
+.fig .edge{stroke:var(--road-l);stroke-width:2;fill:none}
+.fig .zebra{fill:var(--zebra);opacity:.9}
+.fig .stop{stroke:#fff;stroke-width:4;fill:none}
+.fig .car{stroke:#00000055;stroke-width:1}
+.fig .car.me{fill:var(--me)} .fig .car.ot{fill:var(--ot)} .fig .car.go{fill:var(--go)}
+.fig .glass{fill:#ffffffcc}
+.fig text{font:700 12px var(--f-body);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}
+.fig .met{fill:var(--me)} .fig .ott{fill:var(--muted)} .fig .got{fill:var(--go)}
+.fig .rt{fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.fig .mer{stroke:var(--me)} .fig .gor{stroke:var(--go)} .fig .otr{stroke:var(--ot);stroke-dasharray:6 5}
+.fig .mk-me{fill:var(--me)} .fig .mk-go{fill:var(--go)} .fig .mk-ot{fill:var(--ot)}
+.fig .ped circle{fill:var(--red)} .fig .ped path{stroke:var(--red);stroke-width:2.4;fill:none;stroke-linecap:round}
+.fig .bike circle{fill:none;stroke:var(--red);stroke-width:2.4} .fig .bike path{stroke:var(--red);stroke-width:2.4}
+.fig .num circle{fill:var(--asph)} .fig .num text{fill:var(--bg);stroke:none;font:700 11px var(--f-mono)}
+.fig .wait{fill:none;stroke:var(--me);stroke-width:2.5;stroke-dasharray:4 3}
+.fig .rail-bed{fill:#8a7e6e} .fig .rail{stroke:#d6d6d6;stroke-width:3;fill:none}
+.fig .sleeper{fill:#5b4f40}
+.fig .gate rect{fill:#e5e5e5;stroke:#333;stroke-width:1} .fig .gate path{stroke:#e8b400;stroke-width:5;stroke-dasharray:8 6} .fig .lamp{fill:#c8202e}
+.fig .sig-box{fill:#222a31} .fig .rays{fill:none;stroke-width:2.5;stroke-dasharray:3 3} .fig .rays.g{stroke:#21b36b} .fig .rays.y{stroke:#f2c200} .fig .rays.r{stroke:#e0303a}
+.fig .arw{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fig .island{fill:color-mix(in srgb,var(--green) 55%,var(--ground));stroke:var(--road-l);stroke-width:2}
+.fig .ring{fill:none;stroke:var(--road);stroke-width:40}
+.fig .booth{fill:#e9ecef;stroke:#555;stroke-width:1}
+.fig .lane-sign{fill:#11794b} .fig .lane-sign.etc,.fig .lane-sign.etc2{fill:#7a3fa0} .fig .lane-sign.gen{fill:#11794b}
+.fig .lane-t{fill:#fff;stroke:none;font:700 11px var(--f-ja)}
+.fig .bar{stroke:#e8b400;stroke-width:5;stroke-dasharray:8 6} .fig .bar-p{fill:#333}
+.fig path.ng,.fig line.ng{stroke:var(--red);stroke-width:4;fill:none}
+.fig text.ng{fill:var(--red)}
+.fig .sg-blue{fill:#1f5fae} .fig .sg-ring{fill:none;stroke:#d7262b;stroke-width:5} .fig .sg-redl{stroke:#d7262b;stroke-width:5}
+.fig .sg-w{stroke:#fff;stroke-width:4;fill:none} .fig .sg-wf{fill:#fff} .fig .sg-red{fill:#d7262b;stroke:#fff;stroke-width:2}
+.fig text.sg-txt{fill:#fff;stroke:none;font:900 8.5px var(--f-ja)}
+.fig .l-off{fill:#3c434a} .fig .l-g{fill:#21b36b} .fig .l-y{fill:#f2c200} .fig .l-r{fill:#e0303a}
+.fig .sm{font-size:10.5px}
+.fig .lb{font-size:12px}
+
+/* 그림·사진 */
+figure.draw{margin:0;display:grid;gap:6px}
+figure.draw img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff}
+figure.draw figcaption{font-size:13.5px;color:var(--muted);line-height:1.55}
+.phgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.phgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.phgrid{grid-template-columns:1fr}}
+figure.ph{margin:0;background:var(--soft);border-radius:10px;overflow:hidden;display:grid;align-content:start;min-width:0}
+figure.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--line)}
+figure.ph figcaption{padding:8px 10px 10px;display:grid;gap:3px;font-size:13.5px;line-height:1.5}
+figure.ph small{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.pending{border:1.5px dashed var(--line);border-radius:10px;padding:14px;color:var(--muted);font-size:14px}
+
+/* 일본어 카드 */
+.jps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.jps{grid-template-columns:1fr}}
+.jp{border:1px solid var(--line);border-left:6px solid var(--c);border-radius:10px;padding:12px 14px;display:grid;gap:3px;background:var(--paper);min-width:0}
+.jp .ja{margin:0;font:700 clamp(19px,4.6vw,22px)/1.4 var(--f-ja);overflow-wrap:anywhere}
+.jp .pr{margin:0;font-weight:700;color:var(--c);font-size:14.5px}
+.jp .mn{margin:0;font-size:13.5px;color:var(--muted)}
+.cp{justify-self:start;margin-top:4px;background:var(--soft);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:3px 10px;font:500 12px var(--f-body);cursor:pointer}
+.cp.ok{border-color:var(--green);color:var(--green)}
+
+.src{font-size:12.5px;color:var(--muted)}
+footer{padding-block:6px 80px;font-size:13px;color:var(--muted);display:grid;gap:6px}
+footer ul{margin:0;padding-left:1.2em;display:grid;gap:3px}
+footer h2{font:400 18px var(--f-disp);color:var(--ink);margin:0}
+
+@media print{
+  .sos,.side,.tocbtn,.tocpop,.closebtn,.cp,.opn{display:none!important}
+  body{background:#fff}
+  details.chd{break-inside:auto;border-top-width:4px}
+  .sit,.sg,figure.ph{break-inside:avoid}
+}
+
+/* 투어 계획으로 돌아가는 버튼 */
+.tripcta{display:flex;align-items:center;gap:14px;margin:16px 0 4px;padding:14px 18px;border-radius:14px;background:var(--asph);color:var(--bg);text-decoration:none;box-shadow:0 4px 16px rgb(0 0 0 / .18);min-width:0}
+.tripcta>span:first-child{font-size:26px;line-height:1;flex:none}
+.tripcta .t{display:grid;gap:2px;flex:1;min-width:0}
+.tripcta .t b{font-size:17px;font-weight:900}
+.tripcta .t small{font-size:12.5px;opacity:.9;overflow-wrap:anywhere}
+.tripcta i{font-style:normal;font-size:20px;font-weight:900;flex:none;background:rgb(255 255 255 / .18);border-radius:999px;width:38px;height:38px;display:grid;place-items:center}
+.tripcta:hover{filter:brightness(1.1)}
+.tripgo{display:block;text-decoration:none}
+.side .side-go,.tocpop .pop-go{margin-top:28px;padding:10px 12px!important;border-radius:10px!important;background:var(--asph);color:var(--bg)!important;border-left:0!important;font-size:13.5px}
+.tocpop .pop-go{margin-top:14px}
+</style>
+
+<div class="sos"><div class="wrap">
+  <span class="lab">급할 때</span>
+  <a class="em" href="#acc">사고 110 · 119</a>
+  <a href="#acc">렌터카 연락</a>
+  <a href="#winter">주유 満タン</a>
+  <a href="#park">주차 정산</a>
+  <a href="#jp">일본어 한 줄</a>
+</div></div>
+
+<nav class="side" aria-label="문서지도"><p>문서지도</p>{{SIDE}}<a class="tripgo side-go" href="https://claude.ai/artifact/B8zUF6GHy5b6pZs9e7kakN" target="_blank" rel="noopener"><b>← 맛집 투어 계획</b></a></nav>
+<button type="button" class="tocbtn" id="tocbtn" aria-expanded="false" aria-controls="tocpop">목차</button>
+<nav class="tocpop" id="tocpop" aria-label="목차" hidden>{{SIDE}}<a class="tripgo pop-go" href="https://claude.ai/artifact/B8zUF6GHy5b6pZs9e7kakN" target="_blank" rel="noopener"><b>← 맛집 투어 계획</b></a></nav>
+
+<header class="wrap cover">
+  <div class="plate"><span>HOKKAIDO · 2026.11.2–11.6 · Jnet 4WD</span></div>
+  <h1>일본 렌터카 운전 가이드북<small>홋카이도 11월, 한국 운전자 셋이 문제없이 다니기 위한 한 권</small></h1>
+  <p class="facts"><span><b>좌측통행</b> · 우핸들</span><span>해 지는 시각 <b>16:20쯤</b></span><span>사고 <b class="num">110</b> · 구급 <b class="num">119</b></span><span>예약 <b class="num">R0V66VWT</b></span></p>
+  <div class="rule3">
+    <div><b style="color:var(--blue)">왼쪽 차로</b><span>회전한 뒤, 빈 도로에서 출발할 때 특히</span></div>
+    <div><b style="color:var(--red)">止まれ = 완전 정지</b><span>빨간 역삼각형 · 철길 건널목 앞도 반드시</span></div>
+    <div><b style="color:var(--green)">술 0 · 폰 0</b><span>한 모금도 안 됨 · 내비 조작은 조수석이</span></div>
+  </div>
+  <nav class="toc" aria-label="장 목록">{{TOC}}</nav>
+  <a class="tripcta" href="https://claude.ai/artifact/B8zUF6GHy5b6pZs9e7kakN" target="_blank" rel="noopener"><span aria-hidden="true">🍜</span><span class="t"><b>홋카이도 맛집 투어 계획으로 돌아가기</b><small>날짜별 시간표 · 맛집 카드 · 예약할 것</small></span><i aria-hidden="true">←</i></a>
+</header>
+
+<main class="wrap">{{CHAPTERS}}</main>
+
+<footer class="wrap">
+  <h2>출처</h2>
+  <ul>{{SOURCES}}</ul>
+  <p>규칙은 2026년 11월 기준 공식 자료로 확인했습니다. 현장 표지·전광판·경찰 지시가 항상 우선입니다. "직접 보지 못함"이라고 적은 부분은 렌터카 카운터나 계약서에서 확인하세요.</p>
+</footer>
+
+<script>
+(function(){
+  // 장 끝 '접기' 버튼: 닫고 제목으로 돌아가기
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.closebtn');
+    if(b){var d=b.closest('details'); d.open=false; var s=d.closest('section')||d; s.scrollIntoView({block:'start'}); return;}
+    var c=e.target.closest&&e.target.closest('.cp');
+    if(c){var t=c.getAttribute('data-copy');
+      var done=function(){c.textContent='복사됨'; c.classList.add('ok'); setTimeout(function(){c.textContent='일본어 복사'; c.classList.remove('ok');},1600);};
+      try{navigator.clipboard.writeText(t).then(done,function(){sel(c);});}catch(_){sel(c);} return;}
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(a){openFor(a.getAttribute('href')); var pop=document.getElementById('tocpop'); if(!pop.hidden&&pop.contains(a)){pop.hidden=true; tb.setAttribute('aria-expanded','false');}}
+  });
+  function sel(c){var p=c.parentElement.querySelector('.ja'); var r=document.createRange(); r.selectNodeContents(p); var s=getSelection(); s.removeAllRanges(); s.addRange(r);}
+  function openFor(h){ if(!h||h.length<2) return; var el=null; try{el=document.getElementById(decodeURIComponent(h.slice(1)));}catch(_){}
+    if(!el) return; var d=el.querySelector('details')||el.closest('details'); while(d){d.open=true; d=d.parentElement&&d.parentElement.closest('details');} }
+  window.addEventListener('hashchange',function(){openFor(location.hash);});
+  if(location.hash) openFor(location.hash);
+  // 목차 버튼
+  var tb=document.getElementById('tocbtn'), pop=document.getElementById('tocpop');
+  tb.addEventListener('click',function(){pop.hidden=!pop.hidden; tb.setAttribute('aria-expanded',String(!pop.hidden));});
+  // 문서지도 현재 위치 표시
+  var links=[].slice.call(document.querySelectorAll('.side a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  function spy(){var y=innerHeight*0.3, cur=0; secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<y) cur=i;}); links.forEach(function(a,i){a.classList.toggle('on',i===cur);});}
+  addEventListener('scroll',spy,{passive:true}); spy();
+})();
+</script>

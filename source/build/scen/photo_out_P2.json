@@ -1,0 +1,852 @@
+{
+ "photos": {
+  "a:shikotsu": [
+   [
+    "z_sk_fuppushi",
+    "20181107_Shikotsuko_6366_(48436816586).jpg",
+    "호수 건너 보이는 풍불산 · 11월"
+   ],
+   [
+    "z_sk_pier",
+    "20181107_Shikotsuko_6358_(48436970142).jpg",
+    "온천가 선착장 · 11월"
+   ],
+   [
+    "z_sk_view",
+    "東山からの風不死岳と支笏湖.jpg",
+    "산 위에서 내려다본 시코쓰호 · 9월"
+   ]
+  ],
+  "a:daibutsu": [
+   [
+    "z_db_pool",
+    "Makomanai_Takino_Cemetery.jpg",
+    "안도 다다오의 물의 정원 · 10월"
+   ],
+   [
+    "z_db_stone",
+    "ストーンサークル（Stone_Circle）_-_panoramio.jpg",
+    "영원 안의 스톤헨지 · 4월"
+   ]
+  ],
+  "a:canal": [
+   [
+    "z_oc_wide",
+    "Otaru_canal_02.jpg",
+    "창고가 비치는 운하 전경 · 10월"
+   ],
+   [
+    "z_oc_dusk",
+    "Otaru_-_Otaru181.jpg",
+    "해 질 녘 운하와 석조 창고"
+   ],
+   [
+    "z_oc_asakusa",
+    "6_Minatomachi,_Otaru-shi,_Hokkaidō_047-0007,_Japan_-_panoramio.jpg",
+    "아사쿠사바시 광장 · 6월"
+   ]
+  ],
+  "a:usuzan": [
+   [
+    "z_us_showa",
+    "20181106_Showa_5328_(48429841287).jpg",
+    "가까이서 본 쇼와신잔 · 11월"
+   ],
+   [
+    "z_us_crater",
+    "130922_Mount_Usu_Sobetsu_Hokkaido_Japan09bs5.jpg",
+    "우스잔 화구 · 9월"
+   ],
+   [
+    "z_us_trail",
+    "Mt._Usu-shinzan_-_panoramio_(3).jpg",
+    "우스잔 화구 산책로 · 5월"
+   ]
+  ],
+  "a:jigokudani": [
+   [
+    "z_jg_oyunuma",
+    "Noboribetsu_&_Usuzan_-_Noboribetsu7129.jpg",
+    "단풍 든 오유누마 연못 · 가을"
+   ],
+   [
+    "z_jg_hiyori",
+    "Mt.Hiyoriyama.jpg",
+    "연기 오르는 히요리야마 · 11월"
+   ],
+   [
+    "z_jg_footbath",
+    "Oyunuma_River_Natural_Footbath.jpg",
+    "오유누마강 천연 족욕 · 6월"
+   ]
+  ],
+  "a:asahidake": [
+   [
+    "z_as_sugatami",
+    "Asahidake,_Daisetsuzan_Volcanic_Group_-_Asahidake6036.jpg",
+    "스가타미 연못에 비친 아사히다케 · 10월"
+   ],
+   [
+    "z_as_fume",
+    "Sugatami-ike,_Japan.jpg",
+    "분기공에서 피어오르는 연기 · 10월"
+   ],
+   [
+    "z_as_autumn",
+    "Asahidake,_Daisetsuzan_Volcanic_Group_-_Asahidake6029.jpg",
+    "단풍 너머로 보이는 아사히다케 · 10월"
+   ]
+  ],
+  "a:bluepond": [
+   [
+    "z_bp_snow",
+    "Blue_Pond_6_(234335961).jpeg",
+    "첫눈 내린 아오이이케 · 11월"
+   ],
+   [
+    "z_bp_night",
+    "Shirogane_Blue_Pond_by_night,_April_2023_02.jpg",
+    "밤 조명 켜진 아오이이케 · 4월"
+   ]
+  ],
+  "a:shikisai": [
+   [
+    "z_sh_autumn",
+    "Shikisai-no-oka_2.jpg",
+    "가을 언덕 너머 다이세쓰산 연봉 · 10월"
+   ],
+   [
+    "z_sh_rollkun",
+    "Roll_kun_and_Roll_chan.jpg",
+    "짚단 인형 롤 군과 롤 짱 · 7월"
+   ],
+   [
+    "z_sh_house",
+    "Hokkaido_-_Biei,_Shikisai_no_Oka,_juin_2010_(4688078513).jpg",
+    "입구 매점 건물 · 6월"
+   ]
+  ],
+  "town:susukino": [
+   [
+    "z_su_night",
+    "Sapporo_-_Sapporo7197.jpg",
+    "스스키노 교차로 네온 야경"
+   ],
+   [
+    "z_su_wheel",
+    "Ferris_wheel_in_Susukino_at_night_20250725.jpg",
+    "노르베사 관람차가 보이는 밤거리 · 7월"
+   ],
+   [
+    "z_su_neon",
+    "Hokkaido_(7000847590).jpg",
+    "네온 간판 빌딩 · 4월"
+   ],
+   [
+    "z_su_tanuki",
+    "Sapporo_Tanuki_Koji_Shopping_Street,_Sapporo,_Hokkaido,_Japan,_狸小路,_狸小路商店街,_札幌,_北海道,_日本,_たぬきこうじしょうてんがい,_さっぽろし,_ほっかいどう,_にっぽん,_にほん_(16099893014).jpg",
+    "다누키코지 상점가 입구 야경 · 2월"
+   ]
+  ],
+  "town:sakaimachi": [
+   [
+    "z_sa_street",
+    "Sakaimachi_street_Otaru_Hokkaido09n.jpg",
+    "눈 내린 사카이마치 거리 · 11월"
+   ],
+   [
+    "z_sa_orgel",
+    "Otaru_Music_Box_Museum_2014.jpg",
+    "오타루 오르골당 본관 · 6월"
+   ],
+   [
+    "z_sa_marchen",
+    "Marchen_Crossing_Otaru03s5.jpg",
+    "메르헨 교차로의 증기 시계 · 11월"
+   ],
+   [
+    "z_sa_kitaichi",
+    "北一硝子_クリスタル館.JPG",
+    "기타이치 유리 크리스탈관 · 9월"
+   ]
+  ],
+  "town:toyako": [
+   [
+    "z_ty_town",
+    "View_of_Tōyako-onsen_town.JPG",
+    "언덕에서 본 도야코 온천 마을 · 5월"
+   ],
+   [
+    "z_ty_street",
+    "130922_Toyako_Onsen_Toyako_Hokkaido_Japan11s.jpg",
+    "호텔이 늘어선 온천가 거리 · 9월"
+   ],
+   [
+    "z_ty_nakajima",
+    "130922_Toyako_Onsen_Toyako_Hokkaido_Japan01s3.jpg",
+    "호숫가에서 본 나카지마 섬 · 9월"
+   ],
+   [
+    "z_ty_walk",
+    "130922_Toyako_Onsen_Toyako_Hokkaido_Japan03s5.jpg",
+    "호숫가 산책로 · 9월"
+   ]
+  ],
+  "town:noboribetsu": [
+   [
+    "z_nb_street",
+    "Noboribetsu_&_Usuzan_-_Noboribetsu7146.jpg",
+    "해 질 녘 온천가 상점 거리"
+   ],
+   [
+    "z_nb_oni",
+    "Noboribetu_Oni／登別温泉街・青鬼赤鬼_-_panoramio.jpg",
+    "온천가의 청도깨비·적도깨비 · 11월"
+   ],
+   [
+    "z_nb_yukake",
+    "Noboribetu_Yukakejizo／登別・湯かけ地蔵_-_panoramio.jpg",
+    "유카케 오니조 도깨비 지장 · 8월"
+   ],
+   [
+    "z_nb_town",
+    "Noboribetsu_hot_spring_resort01.JPG",
+    "산자락의 온천 마을 전경 · 5월"
+   ]
+  ],
+  "town:biei": [
+   [
+    "z_bi_kenmary",
+    "Skyline_-_panoramio_(18).jpg",
+    "잎 진 켄과 메리의 나무 · 5월"
+   ],
+   [
+    "z_bi_patchwork",
+    "140724_Biei_Hokkaido_Japan01s8.jpg",
+    "패치워크 길의 밭 풍경 · 7월"
+   ],
+   [
+    "z_bi_autumn",
+    "Tokachi_Volcanic_Group_(10439060423).jpg",
+    "단풍 든 언덕 너머 눈 덮인 도카치 연봉 · 10월"
+   ],
+   [
+    "z_bi_snow",
+    "Essential_Biei_(HOKKAIDO-JAPAN)_(2371082483).jpg",
+    "눈 덮인 비에이 언덕 · 3월"
+   ]
+  ],
+  "town:tomakomai": [
+   [
+    "z_tm_fishport",
+    "Port_Marutoma／丸苫漁港_-_panoramio.jpg",
+    "어선이 늘어선 도마코마이 어항 · 3월"
+   ],
+   [
+    "z_tm_quay",
+    "FUJIKI_at_Port_of_Tomakomai_-_53918471013.jpg",
+    "키라키라 공원에서 본 항구 부두 · 8월"
+   ],
+   [
+    "z_tm_marutoma",
+    "マルトマ食堂_-_panoramio.jpg",
+    "어항 안 어협 건물과 마루토마 식당 · 3월"
+   ]
+  ],
+  "town:asahikawa": [
+   [
+    "z_ak_heiwa",
+    "Asahikawa_-_Asahikawa6012.jpg",
+    "저녁 무렵 헤이와도리 보행자 거리 · 10월"
+   ],
+   [
+    "z_ak_bridge",
+    "Asahibashi_Bridge_and_Mt._Daisetsuzan_Range.jpg",
+    "아사히바시 다리와 다이세쓰산 연봉 · 10월"
+   ],
+   [
+    "z_ak_bridge_snow",
+    "Asahikawa_Ishikari_River_Asahi_Bridge_1.JPG",
+    "눈 덮인 아사히바시 다리 · 2월"
+   ]
+  ]
+ },
+ "meta": {
+  "z_sk_fuppushi": {
+   "file": "20181107_Shikotsuko_6366_(48436816586).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:20181107_Shikotsuko_6366_%2848436816586%29.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Ray Swi-hymn from Sijhih-Taipei, Taiwan",
+   "size": [
+    7952,
+    5304
+   ],
+   "author_ok": true,
+   "date": "2018-11-07 13:03"
+  },
+  "z_sk_pier": {
+   "file": "20181107_Shikotsuko_6358_(48436970142).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:20181107_Shikotsuko_6358_%2848436970142%29.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Ray Swi-hymn from Sijhih-Taipei, Taiwan",
+   "size": [
+    7952,
+    5304
+   ],
+   "author_ok": true,
+   "date": "2018-11-07 12:56"
+  },
+  "z_sk_view": {
+   "file": "東山からの風不死岳と支笏湖.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E5%B1%B1%E3%81%8B%E3%82%89%E3%81%AE%E9%A2%A8%E4%B8%8D%E6%AD%BB%E5%B2%B3%E3%81%A8%E6%94%AF%E7%AC%8F%E6%B9%96.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "Koda6029",
+   "size": [
+    5472,
+    3648
+   ],
+   "author_ok": true,
+   "date": "2018-09-26 13:52:20"
+  },
+  "z_db_pool": {
+   "file": "Makomanai_Takino_Cemetery.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Makomanai_Takino_Cemetery.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Mike from Vancouver, Canada",
+   "size": [
+    3093,
+    1740
+   ],
+   "author_ok": true,
+   "date": "2018-10-19 19:46"
+  },
+  "z_db_stone": {
+   "file": "ストーンサークル（Stone_Circle）_-_panoramio.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%E3%82%B9%E3%83%88%E3%83%BC%E3%83%B3%E3%82%B5%E3%83%BC%E3%82%AF%E3%83%AB%EF%BC%88Stone_Circle%EF%BC%89_-_panoramio.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "pakku",
+   "size": [
+    1600,
+    1200
+   ],
+   "author_ok": true,
+   "date": "Taken on 13 April 2008"
+  },
+  "z_oc_wide": {
+   "file": "Otaru_canal_02.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Otaru_canal_02.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.1/jp/deed.en",
+   "author": "megawind",
+   "size": [
+    1024,
+    682
+   ],
+   "author_ok": true,
+   "date": "2009-10-13"
+  },
+  "z_oc_dusk": {
+   "file": "Otaru_-_Otaru181.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Otaru_-_Otaru181.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    5252,
+    3501
+   ],
+   "author_ok": true,
+   "date": "before 23 October 2023"
+  },
+  "z_oc_asakusa": {
+   "file": "6_Minatomachi,_Otaru-shi,_Hokkaidō_047-0007,_Japan_-_panoramio.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:6_Minatomachi%2C_Otaru-shi%2C_Hokkaid%C5%8D_047-0007%2C_Japan_-_panoramio.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Hiroyuki Sato",
+   "size": [
+    4000,
+    3000
+   ],
+   "author_ok": true,
+   "date": "Taken on 30 June 2012"
+  },
+  "z_us_showa": {
+   "file": "20181106_Showa_5328_(48429841287).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:20181106_Showa_5328_%2848429841287%29.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Ray Swi-hymn from Sijhih-Taipei, Taiwan",
+   "size": [
+    7952,
+    5304
+   ],
+   "author_ok": true,
+   "date": "2018-11-06 11:04"
+  },
+  "z_us_crater": {
+   "file": "130922_Mount_Usu_Sobetsu_Hokkaido_Japan09bs5.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:130922_Mount_Usu_Sobetsu_Hokkaido_Japan09bs5.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    4912,
+    3264
+   ],
+   "author_ok": true,
+   "date": "2013-09-22"
+  },
+  "z_us_trail": {
+   "file": "Mt._Usu-shinzan_-_panoramio_(3).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Mt._Usu-shinzan_-_panoramio_%283%29.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "Kenneth Lee Sutherla…",
+   "size": [
+    3264,
+    2448
+   ],
+   "author_ok": true,
+   "date": "Taken on 4 May 2013"
+  },
+  "z_jg_oyunuma": {
+   "file": "Noboribetsu_&_Usuzan_-_Noboribetsu7129.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Noboribetsu_%26_Usuzan_-_Noboribetsu7129.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    4973,
+    3736
+   ],
+   "author_ok": true,
+   "date": ""
+  },
+  "z_jg_hiyori": {
+   "file": "Mt.Hiyoriyama.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Mt.Hiyoriyama.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "欅",
+   "size": [
+    3648,
+    2736
+   ],
+   "author_ok": true,
+   "date": "2008-11-01"
+  },
+  "z_jg_footbath": {
+   "file": "Oyunuma_River_Natural_Footbath.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Oyunuma_River_Natural_Footbath.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Choi2451",
+   "size": [
+    4032,
+    3024
+   ],
+   "author_ok": true,
+   "date": "2019-06-11 15:46:52"
+  },
+  "z_as_sugatami": {
+   "file": "Asahidake,_Daisetsuzan_Volcanic_Group_-_Asahidake6036.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Asahidake%2C_Daisetsuzan_Volcanic_Group_-_Asahidake6036.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    5174,
+    3777
+   ],
+   "author_ok": true,
+   "date": "2025-10-02"
+  },
+  "z_as_fume": {
+   "file": "Sugatami-ike,_Japan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sugatami-ike%2C_Japan.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Rick McCharles",
+   "size": [
+    4000,
+    3000
+   ],
+   "author_ok": true,
+   "date": "Taken on 25 October 2011, 14:24:12"
+  },
+  "z_as_autumn": {
+   "file": "Asahidake,_Daisetsuzan_Volcanic_Group_-_Asahidake6029.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Asahidake%2C_Daisetsuzan_Volcanic_Group_-_Asahidake6029.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    5330,
+    2892
+   ],
+   "author_ok": true,
+   "date": "2025-10-04"
+  },
+  "z_bp_snow": {
+   "file": "Blue_Pond_6_(234335961).jpeg",
+   "page": "https://commons.wikimedia.org/wiki/File:Blue_Pond_6_%28234335961%29.jpeg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "Tomoki Nagahira",
+   "size": [
+    2048,
+    1366
+   ],
+   "author_ok": true,
+   "date": "5 November 2017, 04:51:15 (UTC)"
+  },
+  "z_bp_night": {
+   "file": "Shirogane_Blue_Pond_by_night,_April_2023_02.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Shirogane_Blue_Pond_by_night%2C_April_2023_02.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "Calistemon",
+   "size": [
+    4608,
+    2592
+   ],
+   "author_ok": true,
+   "date": "2023-04-04 17:53:45"
+  },
+  "z_sh_autumn": {
+   "file": "Shikisai-no-oka_2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Shikisai-no-oka_2.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    5035,
+    3159
+   ],
+   "author_ok": true,
+   "date": "2025-10-06 10:54:58"
+  },
+  "z_sh_rollkun": {
+   "file": "Roll_kun_and_Roll_chan.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Roll_kun_and_Roll_chan.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "LR0725",
+   "size": [
+    4000,
+    3000
+   ],
+   "author_ok": true,
+   "date": "2023-07-12 11:35:43"
+  },
+  "z_sh_house": {
+   "file": "Hokkaido_-_Biei,_Shikisai_no_Oka,_juin_2010_(4688078513).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Hokkaido_-_Biei%2C_Shikisai_no_Oka%2C_juin_2010_%284688078513%29.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Tzuhsun Hsu from Taipei, Taiwan",
+   "size": [
+    3264,
+    2176
+   ],
+   "author_ok": true,
+   "date": "2010-06-08 14:06"
+  },
+  "z_su_night": {
+   "file": "Sapporo_-_Sapporo7197.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sapporo_-_Sapporo7197.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    4907,
+    3681
+   ],
+   "author_ok": true,
+   "date": "before 27 February 2026"
+  },
+  "z_su_wheel": {
+   "file": "Ferris_wheel_in_Susukino_at_night_20250725.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ferris_wheel_in_Susukino_at_night_20250725.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "掬茶",
+   "size": [
+    6000,
+    4000
+   ],
+   "author_ok": true,
+   "date": "2025-07-25 22:50:38"
+  },
+  "z_su_neon": {
+   "file": "Hokkaido_(7000847590).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Hokkaido_%287000847590%29.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.0",
+   "author": "whity",
+   "size": [
+    3656,
+    2732
+   ],
+   "author_ok": true,
+   "date": "2012-04-29 20:57"
+  },
+  "z_su_tanuki": {
+   "file": "Sapporo_Tanuki_Koji_Shopping_Street,_Sapporo,_Hokkaido,_Japan,_狸小路,_狸小路商店街,_札幌,_北海道,_日本,_たぬきこうじしょうてんがい,_さっぽろし,_ほっかいどう,_にっぽん,_にほん_(16099893014).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sapporo_Tanuki_Koji_Shopping_Street%2C_Sapporo%2C_Hokkaido%2C_Japan%2C_%E7%8B%B8%E5%B0%8F%E8%B7%AF%2C_%E7%8B%B8%E5%B0%8F%E8%B7%AF%E5%95%86%E5%BA%97%E8%A1%97%2C_%E6%9C%AD%E5%B9%8C%2C_%E5%8C%97%E6%B5%B7%E9%81%93%2C_%E6%97%A5%E6%9C%AC%2C_%E3%81%9F%E3%81%AC%E3%81%8D%E3%81%93%E3%81%86%E3%81%98%E3%81%97%E3%82%87%E3%81%86%E3%81%A6%E3%82%93%E3%81%8C%E3%81%84%2C_%E3%81%95%E3%81%A3%E3%81%BD%E3%82%8D%E3%81%97%2C_%E3%81%BB%E3%81%A3%E3%81%8B%E3%81%84%E3%81%A9%E3%81%86%2C_%E3%81%AB%E3%81%A3%E3%81%BD%E3%82%93%2C_%E3%81%AB%E3%81%BB%E3%82%93_%2816099893014%29.jpg",
+   "license": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "bryan...",
+   "size": [
+    2348,
+    2348
+   ],
+   "author_ok": true,
+   "date": "2015-02-27 19:45"
+  },
+  "z_sa_street": {
+   "file": "Sakaimachi_street_Otaru_Hokkaido09n.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sakaimachi_street_Otaru_Hokkaido09n.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    4800,
+    3200
+   ],
+   "author_ok": true,
+   "date": "2011-11-26"
+  },
+  "z_sa_orgel": {
+   "file": "Otaru_Music_Box_Museum_2014.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Otaru_Music_Box_Museum_2014.jpg",
+   "license": "https://creativecommons.org/licenses/by/4.0",
+   "author": "Wpcpey",
+   "size": [
+    2816,
+    2112
+   ],
+   "author_ok": true,
+   "date": "2014-06"
+  },
+  "z_sa_marchen": {
+   "file": "Marchen_Crossing_Otaru03s5.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Marchen_Crossing_Otaru03s5.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    4912,
+    3264
+   ],
+   "author_ok": true,
+   "date": "2011-11-26"
+  },
+  "z_sa_kitaichi": {
+   "file": "北一硝子_クリスタル館.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E4%B8%80%E7%A1%9D%E5%AD%90_%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E9%A4%A8.JPG",
+   "license": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Sho Horiuchi",
+   "size": [
+    4000,
+    3000
+   ],
+   "author_ok": true,
+   "date": "2010-09"
+  },
+  "z_ty_town": {
+   "file": "View_of_Tōyako-onsen_town.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:View_of_T%C5%8Dyako-onsen_town.JPG",
+   "license": "Public_domain",
+   "author": "Wakimasa",
+   "size": [
+    2816,
+    2112
+   ],
+   "author_ok": true,
+   "date": "2008-05-17"
+  },
+  "z_ty_street": {
+   "file": "130922_Toyako_Onsen_Toyako_Hokkaido_Japan11s.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:130922_Toyako_Onsen_Toyako_Hokkaido_Japan11s.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    4912,
+    3264
+   ],
+   "author_ok": true,
+   "date": "2013-09-22"
+  },
+  "z_ty_nakajima": {
+   "file": "130922_Toyako_Onsen_Toyako_Hokkaido_Japan01s3.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:130922_Toyako_Onsen_Toyako_Hokkaido_Japan01s3.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    4800,
+    3200
+   ],
+   "author_ok": true,
+   "date": "2013-09-21"
+  },
+  "z_ty_walk": {
+   "file": "130922_Toyako_Onsen_Toyako_Hokkaido_Japan03s5.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:130922_Toyako_Onsen_Toyako_Hokkaido_Japan03s5.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    4800,
+    3200
+   ],
+   "author_ok": true,
+   "date": "2013-09-21"
+  },
+  "z_nb_street": {
+   "file": "Noboribetsu_&_Usuzan_-_Noboribetsu7146.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Noboribetsu_%26_Usuzan_-_Noboribetsu7146.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    5131,
+    3848
+   ],
+   "author_ok": true,
+   "date": "before 26 February 2026"
+  },
+  "z_nb_oni": {
+   "file": "Noboribetu_Oni／登別温泉街・青鬼赤鬼_-_panoramio.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Noboribetu_Oni%EF%BC%8F%E7%99%BB%E5%88%A5%E6%B8%A9%E6%B3%89%E8%A1%97%E3%83%BB%E9%9D%92%E9%AC%BC%E8%B5%A4%E9%AC%BC_-_panoramio.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "T DMY",
+   "size": [
+    3072,
+    2304
+   ],
+   "author_ok": true,
+   "date": "Taken on 17 November 2010"
+  },
+  "z_nb_town": {
+   "file": "Noboribetsu_hot_spring_resort01.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Noboribetsu_hot_spring_resort01.JPG",
+   "license": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "User:欅",
+   "size": [
+    3648,
+    2736
+   ],
+   "author_ok": true,
+   "date": "2008-05-06"
+  },
+  "z_nb_yukake": {
+   "file": "Noboribetu_Yukakejizo／登別・湯かけ地蔵_-_panoramio.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Noboribetu_Yukakejizo%EF%BC%8F%E7%99%BB%E5%88%A5%E3%83%BB%E6%B9%AF%E3%81%8B%E3%81%91%E5%9C%B0%E8%94%B5_-_panoramio.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "T DMY",
+   "size": [
+    3072,
+    2304
+   ],
+   "author_ok": true,
+   "date": "Taken on 25 August 2009"
+  },
+  "z_bi_kenmary": {
+   "file": "Skyline_-_panoramio_(18).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Skyline_-_panoramio_%2818%29.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "pakku",
+   "size": [
+    2256,
+    1504
+   ],
+   "author_ok": true,
+   "date": "Taken on 6 May 2016"
+  },
+  "z_bi_patchwork": {
+   "file": "140724_Biei_Hokkaido_Japan01s8.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:140724_Biei_Hokkaido_Japan01s8.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.5",
+   "author": "663highland",
+   "size": [
+    5700,
+    3800
+   ],
+   "author_ok": true,
+   "date": "2014-07-24"
+  },
+  "z_bi_autumn": {
+   "file": "Tokachi_Volcanic_Group_(10439060423).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Tokachi_Volcanic_Group_%2810439060423%29.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Toshihiro Matsui",
+   "size": [
+    1600,
+    1066
+   ],
+   "author_ok": true,
+   "date": "2013-10-19 13:24"
+  },
+  "z_bi_snow": {
+   "file": "Essential_Biei_(HOKKAIDO-JAPAN)_(2371082483).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Essential_Biei_%28HOKKAIDO-JAPAN%29_%282371082483%29.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Chi King",
+   "size": [
+    4368,
+    2736
+   ],
+   "author_ok": true,
+   "date": "2008-03-23 08:15"
+  },
+  "z_tm_quay": {
+   "file": "FUJIKI_at_Port_of_Tomakomai_-_53918471013.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:FUJIKI_at_Port_of_Tomakomai_-_53918471013.jpg",
+   "license": "https://creativecommons.org/licenses/by/2.0",
+   "author": "MIKI Yoshihito",
+   "size": [
+    6721,
+    3781
+   ],
+   "author_ok": true,
+   "date": "2024-08-09 13:46:01"
+  },
+  "z_tm_fishport": {
+   "file": "Port_Marutoma／丸苫漁港_-_panoramio.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Port_Marutoma%EF%BC%8F%E4%B8%B8%E8%8B%AB%E6%BC%81%E6%B8%AF_-_panoramio.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "T DMY",
+   "size": [
+    3072,
+    2304
+   ],
+   "author_ok": true,
+   "date": "Taken on 7 March 2009"
+  },
+  "z_tm_marutoma": {
+   "file": "マルトマ食堂_-_panoramio.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%E3%83%9E%E3%83%AB%E3%83%88%E3%83%9E%E9%A3%9F%E5%A0%82_-_panoramio.jpg",
+   "license": "https://creativecommons.org/licenses/by/3.0",
+   "author": "pakku",
+   "size": [
+    1600,
+    1200
+   ],
+   "author_ok": true,
+   "date": "Taken on 28 March 2008"
+  },
+  "z_ak_heiwa": {
+   "file": "Asahikawa_-_Asahikawa6012.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Asahikawa_-_Asahikawa6012.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "lumoplank",
+   "size": [
+    4681,
+    3120
+   ],
+   "author_ok": true,
+   "date": "2025-10-05"
+  },
+  "z_ak_bridge": {
+   "file": "Asahibashi_Bridge_and_Mt._Daisetsuzan_Range.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Asahibashi_Bridge_and_Mt._Daisetsuzan_Range.jpg",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Masal64",
+   "size": [
+    1920,
+    1080
+   ],
+   "author_ok": true,
+   "date": "19 October 2016, 14:23:57 (according to Exif data)"
+  },
+  "z_ak_bridge_snow": {
+   "file": "Asahikawa_Ishikari_River_Asahi_Bridge_1.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Asahikawa_Ishikari_River_Asahi_Bridge_1.JPG",
+   "license": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "京浜にけ",
+   "size": [
+    2360,
+    1820
+   ],
+   "author_ok": true,
+   "date": "2008-02-07"
+  }
+ }
+}

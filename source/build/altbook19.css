@@ -1,0 +1,41 @@
+/* v19.1 대안으로 바꿀 때 예약할 것 (altbook19.py) — 미리 할 것 아래 기본 접힘 */
+details.altbook{margin-top:14px;border:1.5px dashed var(--line);border-radius:12px;background:var(--card)}
+details.altbook>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:13px 16px}
+details.altbook>summary::-webkit-details-marker{display:none}
+details.altbook>summary::before{content:"+";font:700 18px/1 var(--f-mono);color:var(--accent);width:16px;flex:none}
+details.altbook[open]>summary::before{content:"−"}
+details.altbook>summary b{font-size:16px;font-weight:900;color:var(--ink)}
+details.altbook>summary .abcnt{font-size:12.5px;color:var(--muted)}
+.abbody{display:grid;gap:8px;padding:0 14px 14px;min-width:0}
+.abintro{margin:0;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.abkinds{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.abk{display:inline-block;font:700 11.5px/1.6 var(--f-body);border-radius:999px;padding:0 8px;border:1.5px solid currentColor;white-space:nowrap}
+.abk.k-must{color:var(--warn)}
+.abk.k-rec{color:var(--accent)}
+.abk.k-ok{color:var(--ok)}
+.abk.k-call{color:var(--sa)}
+.abk.k-queue{color:var(--muted)}
+details.abgrp{border:1px solid var(--line);border-radius:10px;background:var(--paper);min-width:0}
+details.abgrp>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:8px;padding:10px 12px;font-size:14px}
+details.abgrp>summary::-webkit-details-marker{display:none}
+details.abgrp>summary::before{content:"+";font:700 15px/1 var(--f-mono);color:var(--muted);width:12px;flex:none}
+details.abgrp[open]>summary::before{content:"−"}
+details.abgrp>summary b{flex:1;min-width:0;font-weight:700}
+details.abgrp>summary .abn{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.absub{margin:0 12px 8px;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.absub .abgo{margin-left:6px;font-weight:700}
+.ablist{list-style:none;margin:0;padding:0 10px 10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.abi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:10px 12px;display:grid;gap:4px;min-width:0}
+.abh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.abh b{font-size:14.5px}
+.abko{font-size:12.5px;color:var(--muted)}
+.abslot{margin:0;font-size:13px;font-weight:700;color:var(--ink)}
+.abhow{margin:0;font-size:13px;line-height:1.55;overflow-wrap:anywhere}
+.abnote{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted);overflow-wrap:anywhere}
+@media (max-width:560px){
+  details.altbook>summary{padding:12px}
+  .abbody{padding:0 8px 10px}
+  .ablist{grid-template-columns:minmax(0,1fr);padding:0 6px 8px}
+  .absub{margin:0 10px 8px}
+}
+.abhow .num{white-space:nowrap;font-family:var(--f-mono)}

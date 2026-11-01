@@ -1,0 +1,34 @@
+[
+{
+"key": "g_beergarden",
+"also": [],
+"name": "サッポロビール園 開拓使館",
+"ko": "삿포로 비어가든 가이타쿠시칸",
+"tb": "/hokkaido/A0101/A010202/1000159/",
+"owner_url": "https://tabelog.com/hokkaido/A0101/A010202/1000159/dtlphotolst/?mode=owner&smp=2"
+},
+{
+"key": "g_morihicogeki",
+"also": [],
+"name": "MORIHICO. 藝術劇場",
+"ko": "모리히코 게이주쓰 게키조",
+"tb": "/hokkaido/A0101/A010102/1059783/",
+"owner_url": "https://tabelog.com/hokkaido/A0101/A010102/1059783/dtlphotolst/?mode=owner&smp=2"
+},
+{
+"key": "d_fujii",
+"also": [],
+"name": "お菓子のふじい",
+"ko": "오카시노 후지이",
+"tb": "/hokkaido/A0106/A010603/1024786/",
+"owner_url": "https://tabelog.com/hokkaido/A0106/A010603/1024786/dtlphotolst/?mode=owner&smp=2"
+},
+{
+"key": "r:鮨みなと",
+"also": [],
+"name": "鮨みなと",
+"ko": "스시 미나토",
+"tb": "/hokkaido/A0104/A010401/1001719/",
+"owner_url": "https://tabelog.com/hokkaido/A0104/A010401/1001719/dtlphotolst/?mode=owner&smp=2"
+}
+]
