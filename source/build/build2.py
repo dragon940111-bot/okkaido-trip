@@ -312,9 +312,26 @@ def strip(tiles, changed, label):
         out.append(f'<div class="tile t-{c} {cls}"><b>{dt} {E(dw)}</b>{E(txt)}</div>')
     return '<div class="strip">' + ''.join(out) + '</div>'
 
+import re as _re
+LODGING_Q = '札幌市東区北17条東2丁目4-32'
+def _nav_dest(items, i):
+    # v19.17: 이동 칸 → 다음 목적지(다음 식당·장소·숙소·렌터카) 구글맵 길안내
+    t0 = items[i][3]
+    if '숙소로' in t0: return (LODGING_Q, None)
+    for t, kind, ref, title, sub, num, alts in items[i + 1:]:
+        if kind == 'move': continue
+        rr = ref[0] if isinstance(ref, tuple) else ref
+        if kind in ('eat', 'same') and rr in R: return (R[rr].get('q') or R[rr]['name'], R[rr].get('pid'))
+        if rr and rr in A: return (A[rr].get('q') or A[rr]['name'], A[rr].get('pid'))
+        if '숙소' in title: return (LODGING_Q, None)
+        if '렌터카' in title or 'Jnet' in title: return ('Jネットレンタカー 新千歳空港店', None)
+        if '주유' in title: return ('ガソリンスタンド 新千歳空港 周辺', None)
+        if '공항' in title or '터미널' in title or 'LJ2' in title: return ('新千歳空港 国際線ターミナル', None)
+        return (_re.sub(r'\s*\(.*$', '', title), None)
+    return (LODGING_Q, None)
 def _tl_rows(items, ctx=None):
     rows = []
-    for t, kind, ref, title, sub, num, alts in items:
+    for _i, (t, kind, ref, title, sub, num, alts) in enumerate(items):
         mn = f'<span class="mn" title="지도 번호">{E(num)}</span>' if num else ''
         if kind == 'same':
             n = int(str(ref)[3:])
@@ -323,7 +340,14 @@ def _tl_rows(items, ctx=None):
                     + (f'<p class="it-s">{E(sub)}</p>' if sub else '')
                     + f'<p class="samelink"><a href="#day{n}">DAY {n} 시간표에서 보기 ↓</a></p>')
         else:
-            body = f'<p class="it-t">{mn}{E(title)}</p>' + (f'<p class="it-s">{E(sub)}</p>' if sub else '')
+            if kind == 'move':
+                _q, _pid = _nav_dest(items, _i)
+                _u = gnav(_q, _pid) + '&dir_action=navigate'
+                if '지하철' in title: _u = _u.replace('travelmode=driving', 'travelmode=transit')
+                body = (f'<a class="mvgo" href="{E(_u)}" target="_blank" rel="noopener"><p class="it-t">{mn}{E(title)}<span class="navchip">길안내 ▶</span></p></a>'
+                        + (f'<p class="it-s">{E(sub)}</p>' if sub else ''))
+            else:
+                body = f'<p class="it-t">{mn}{E(title)}</p>' + (f'<p class="it-s">{E(sub)}</p>' if sub else '')
             if ref and kind == 'eat':
                 for rr in (ref if isinstance(ref, tuple) else (ref,)): body += eat_card(rr, ctx=ctx)
             elif ref and ref in A:

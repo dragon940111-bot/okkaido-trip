@@ -311,6 +311,55 @@
       jds.forEach(function(jd){ jd.classList.toggle('jdhide', a<=y && z>y); }); }
     window.addEventListener('scroll',function(){ if(!tk){tk=true;requestAnimationFrame(upd);} },{passive:true}); window.addEventListener('resize',upd); document.addEventListener('toggle',upd,true); upd();
   })();
+  // v19.16 "동선": 펼친 상세 일정(본 일정·대안) 안에 있을 때만 작은 버튼이 따라다님 → 누르면 그날 이동·장소 순서 목록, 누르면 그 줄로 이동
+  (function(){
+    var btn=document.createElement('button'); btn.type='button'; btn.className='rtbtn'; btn.hidden=true; btn.setAttribute('aria-expanded','false');
+    var pan=document.createElement('div'); pan.className='rtpan'; pan.hidden=true;
+    document.body.appendChild(pan); document.body.appendChild(btn);
+    var cur=null, items=[];
+    function cut(s,n){ s=s.replace(/\s+/g,' ').trim(); return s.length>n? s.slice(0,n-1)+'…' : s; }
+    function clean(t){ var p; do{ p=t; t=t.replace(/\([^()]*\)/g,'').replace(/（[^（）]*）/g,''); }while(t!==p); return t.replace(/[()（）]/g,'').replace(/\s+/g,' ').trim(); }
+    function title(ol){ var d=ol.closest('details.fold'); if(!d) return '동선'; var s=d.querySelector(':scope>summary');
+      if(d.id&&d.id.indexOf('scen-')===0){ var h4=s&&s.querySelector('h4'); return cut('대안 '+d.id.split('-')[1]+' · '+(h4?h4.textContent.split(' · ')[0]:''),24); }
+      var e=s&&s.querySelector('.eyebrow');
+      var t=e? e.textContent.replace(/^\s*\d+/,'') : (s? s.textContent : ''); return cut(clean(t),22); }
+    function build(ol){
+      items=[]; [].forEach.call(ol.querySelectorAll(':scope>li.it'),function(li){
+        var tt=li.querySelector('.it-t'); if(!tt) return; var tm=li.querySelector('time'); var time=tm?tm.textContent.trim():'';
+        var mn=tt.querySelector('.mn'); var raw=tt.textContent; if(mn) raw=raw.replace(mn.textContent,''); var nc=tt.querySelector('.navchip'); if(nc) raw=raw.replace(nc.textContent,'');
+        raw=raw.trim();
+        if(li.classList.contains('k-move')){
+          var to=clean(raw), ar=to.indexOf('→')>-1; if(ar) to=to.split('→').pop(); to=to.replace(/^출발\s*/,'').trim(); if(!ar) to=to.replace(/(으로|로)$/,''); to=to.split('·')[0].split(',')[0];
+          items.push({li:li,time:time,kind:'move',label:'이동',place:cut(to,12)}); return; }
+        var cat=raw.split(/[:：]/)[0].replace(/\s*\d.*$/,'').trim();
+        var place='';
+        var nm=li.querySelector('article.card .nmline'); 
+        if(nm){ var m=nm.textContent.replace('한글 이름','').split('·')[0]; place=m; }
+        else if(raw.indexOf(':')>-1||raw.indexOf('：')>-1){ place=raw.split(/[:：]/).slice(1).join(':').split('·')[0]; }
+        else { place=raw; cat=''; }
+        items.push({li:li,time:time,kind:mn?'stop':'note',num:mn?mn.textContent.trim():'',label:cut(cat||'',6),place:cut(clean(place),12)});
+      });
+      var h='<p class="rth">'+title(ol)+' · 동선</p><ol class="rtl">';
+      items.forEach(function(it,i){ h+='<li class="rt-'+it.kind+'" data-i="'+i+'"><button type="button"><span class="rtt">'+it.time+'</span>'+
+        (it.kind==='stop'?'<span class="rtn">'+it.num+'</span>':'')+'<b>'+(it.kind==='move'?'이동':it.label)+'</b><span class="rtp">'+it.place+'</span></button></li>'; });
+      pan.innerHTML=h+'</ol>';
+    }
+    function active(){ var mid=innerHeight*0.45, best=null;
+      [].forEach.call(document.querySelectorAll('ol.tl'),function(ol){ if(!ol.offsetParent) return; var d=ol.closest('details.fold'); var box=(d||ol).getBoundingClientRect();
+        if(box.top<mid && box.bottom>mid*0.6) best=ol; });
+      return best; }
+    function mark(){ if(pan.hidden||!items.length) return; var y=innerHeight*0.35, k=-1; items.forEach(function(it,i){ if(it.li.getBoundingClientRect().top<y) k=i; });
+      [].forEach.call(pan.querySelectorAll('li'),function(li,i){ li.classList.toggle('on',i===k); }); }
+    var tk=false; function upd(){ tk=false; var ol=active();
+      if(ol!==cur){ cur=ol; if(ol){ btn.innerHTML='<span aria-hidden="true">🗺</span> 동선'; build(ol); } else { pan.hidden=true; btn.setAttribute('aria-expanded','false'); } }
+      btn.hidden=!cur; mark(); }
+    window.addEventListener('scroll',function(){ if(!tk){tk=true;requestAnimationFrame(upd);} },{passive:true});
+    window.addEventListener('resize',upd); document.addEventListener('toggle',function(){ setTimeout(upd,40); },true); upd();
+    btn.addEventListener('click',function(e){ e.stopPropagation(); var o=pan.hidden; pan.hidden=!o; btn.setAttribute('aria-expanded',o?'true':'false'); if(o){ mark(); var on=pan.querySelector('li.on'); if(on) on.scrollIntoView({block:'nearest'}); } });
+    pan.addEventListener('click',function(e){ var b=e.target.closest('li[data-i]'); if(!b) return; var it=items[+b.getAttribute('data-i')]; if(!it) return;
+      pan.hidden=true; btn.setAttribute('aria-expanded','false'); var top=it.li.getBoundingClientRect().top+scrollY-110; window.scrollTo({top:top,left:0,behavior:'instant'}); });
+    document.addEventListener('click',function(e){ if(!pan.hidden&&!pan.contains(e.target)&&e.target!==btn){ pan.hidden=true; btn.setAttribute('aria-expanded','false'); } });
+  })();
   window.addEventListener('hashchange',function(){openFor(location.hash);});
   if(location.hash) openFor(location.hash);
 })();
