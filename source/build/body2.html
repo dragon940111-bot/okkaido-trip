@@ -366,20 +366,24 @@
 })();
 </script>
 <script>
-/* v19.20 펼쳐보기↔접기 */
+/* v19.20 펼쳐보기↔접기 · v19.21 "~보기" 전부 + iOS 대비 */
 (function(){
-  var RE=/펼쳐\s?보기/;
+  var RE=/(펼쳐\s?보기|을 표로 보기|\s보기)(\s*\([^()]*\))?\s*$/;
+  function swap(o){ return o.replace(/을 표로 보기(\s*\([^()]*\))?\s*$/,' 표 접기').replace(/펼쳐\s?보기\s*$/,'접기').replace(/\s보기\s*$/,' 접기'); }
   function upd(d){
     var sm=null; for(var i=0;i<d.children.length;i++){ if(d.children[i].tagName==='SUMMARY'){ sm=d.children[i]; break; } }
     if(!sm) return;
-    var w=document.createTreeWalker(sm,NodeFilter.SHOW_TEXT), n;
+    var w=document.createTreeWalker(sm,NodeFilter.SHOW_TEXT), n, done=false;
     while((n=w.nextNode())){
-      if(n.__o==null){ if(!RE.test(n.nodeValue)) continue; n.__o=n.nodeValue; }
-      n.nodeValue=d.open ? n.__o.replace(RE,'접기') : n.__o;
+      if(n.__o==null){ if(done||!RE.test(n.nodeValue)) continue; n.__o=n.nodeValue; }
+      n.nodeValue=d.open ? swap(n.__o) : n.__o; done=true;
     }
   }
+  function hook(d){ if(d.__tg) return; d.__tg=1; d.addEventListener('toggle',function(){ upd(d); }); upd(d); }
+  function all(){ document.querySelectorAll('details').forEach(hook); }
   document.addEventListener('toggle',function(e){ var t=e.target; if(t&&t.tagName==='DETAILS') upd(t); },true);
-  function all(){ document.querySelectorAll('details').forEach(upd); }
+  document.addEventListener('click',function(e){ var sm=e.target.closest&&e.target.closest('summary'); if(sm&&sm.parentElement) setTimeout(function(){ upd(sm.parentElement); },60); },true);
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',all); else all();
+  setTimeout(all,1500);
 })();
 </script>
