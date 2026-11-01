@@ -316,7 +316,7 @@
     var btn=document.createElement('button'); btn.type='button'; btn.className='rtbtn'; btn.hidden=true; btn.setAttribute('aria-expanded','false');
     var pan=document.createElement('div'); pan.className='rtpan'; pan.hidden=true;
     document.body.appendChild(pan); document.body.appendChild(btn);
-    var cur=null, items=[];
+    var cur=null, items=[], userClosed=false; function wide(){ return innerWidth>=1024; }
     function cut(s,n){ s=s.replace(/\s+/g,' ').trim(); return s.length>n? s.slice(0,n-1)+'…' : s; }
     function clean(t){ var p; do{ p=t; t=t.replace(/\([^()]*\)/g,'').replace(/（[^（）]*）/g,''); }while(t!==p); return t.replace(/[()（）]/g,'').replace(/\s+/g,' ').trim(); }
     function title(ol){ var d=ol.closest('details.fold'); if(!d) return '동선'; var s=d.querySelector(':scope>summary');
@@ -351,14 +351,14 @@
     function mark(){ if(pan.hidden||!items.length) return; var y=innerHeight*0.35, k=-1; items.forEach(function(it,i){ if(it.li.getBoundingClientRect().top<y) k=i; });
       [].forEach.call(pan.querySelectorAll('li'),function(li,i){ li.classList.toggle('on',i===k); }); }
     var tk=false; function upd(){ tk=false; var ol=active();
-      if(ol!==cur){ cur=ol; if(ol){ btn.innerHTML='<span aria-hidden="true">🗺</span> 동선'; build(ol); } else { pan.hidden=true; btn.setAttribute('aria-expanded','false'); } }
+      if(ol!==cur){ cur=ol; if(ol){ btn.innerHTML='<span class="rtcap" aria-hidden="true"></span><span aria-hidden="true">🗺</span> 동선 빠른이동'; build(ol); if(wide()&&!userClosed){ pan.hidden=false; btn.setAttribute('aria-expanded','true'); } } else { pan.hidden=true; btn.setAttribute('aria-expanded','false'); } }
       btn.hidden=!cur; mark(); }
     window.addEventListener('scroll',function(){ if(!tk){tk=true;requestAnimationFrame(upd);} },{passive:true});
     window.addEventListener('resize',upd); document.addEventListener('toggle',function(){ setTimeout(upd,40); },true); upd();
-    btn.addEventListener('click',function(e){ e.stopPropagation(); var o=pan.hidden; pan.hidden=!o; btn.setAttribute('aria-expanded',o?'true':'false'); if(o){ mark(); var on=pan.querySelector('li.on'); if(on) on.scrollIntoView({block:'nearest'}); } });
+    btn.addEventListener('click',function(e){ e.stopPropagation(); var o=pan.hidden; pan.hidden=!o; btn.setAttribute('aria-expanded',o?'true':'false'); if(!o) userClosed=true; if(o){ mark(); var on=pan.querySelector('li.on'); if(on) on.scrollIntoView({block:'nearest'}); } });
     pan.addEventListener('click',function(e){ var b=e.target.closest('li[data-i]'); if(!b) return; var it=items[+b.getAttribute('data-i')]; if(!it) return;
-      pan.hidden=true; btn.setAttribute('aria-expanded','false'); var top=it.li.getBoundingClientRect().top+scrollY-110; window.scrollTo({top:top,left:0,behavior:'instant'}); });
-    document.addEventListener('click',function(e){ if(!pan.hidden&&!pan.contains(e.target)&&e.target!==btn){ pan.hidden=true; btn.setAttribute('aria-expanded','false'); } });
+      if(!wide()){ pan.hidden=true; btn.setAttribute('aria-expanded','false'); } var top=it.li.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.3); window.scrollTo({top:Math.max(0,top),left:0,behavior:'instant'}); setTimeout(mark,50); });
+    document.addEventListener('click',function(e){ if(!wide()&&!pan.hidden&&!pan.contains(e.target)&&!btn.contains(e.target)){ pan.hidden=true; btn.setAttribute('aria-expanded','false'); } });
   })();
   window.addEventListener('hashchange',function(){openFor(location.hash);});
   if(location.hash) openFor(location.hash);
