@@ -890,3 +890,30 @@ h1,h2,h3,h4,h5,summary,.it-t,figcaption{text-wrap:balance}
 p,li,dd,.why,.tip{text-wrap:pretty}
 w-s{display:inline-block;max-width:100%;text-indent:0}
 .badge>w-s,summary>w-s,h4>w-s,.eyebrow>w-s,.it-t>w-s{display:contents}
+
+/* v19.23 부분 공유 버튼 */
+button.shr{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:3px;font:600 11.5px/1 var(--f-body,system-ui);color:#0b6e78;background:#eef7f8;border:1px solid #c6e1e4;border-radius:999px;padding:4px 8px;cursor:pointer;white-space:nowrap;vertical-align:middle}
+button.shr i{font-style:normal}
+button.shr:active{background:#d6eef0}
+summary>button.shr-s{margin-left:8px;flex:none}
+article.card{position:relative}
+button.shr-c{position:absolute;top:8px;right:8px;z-index:2;background:rgba(255,255,255,.92)}
+li.it{position:relative}
+button.shr-t{position:absolute;left:0;top:26px;padding:3px 6px;font-size:10.5px}
+button.shr-t i{display:none}
+@media (min-width:761px){button.shr-t i{display:inline}}
+.goflash{animation:goflash 3.6s ease-out}
+@keyframes goflash{0%,35%{box-shadow:0 0 0 4px #ffd54a,0 0 0 9px rgba(255,213,74,.35);background-color:#fff8d6}100%{box-shadow:0 0 0 0 rgba(255,213,74,0)}}
+#shrtoast{position:fixed;left:50%;bottom:calc(110px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:#1d2b33;color:#fff;font-size:13.5px;padding:10px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:4000;white-space:nowrap}
+#shrtoast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.rcvlink{display:none}
+html.standalone .rcvlink{display:block;width:calc(100% - 24px);margin:6px 12px 10px;padding:11px 12px;border-radius:12px;border:1.5px solid #0b6e78;background:#eef7f8;color:#0b6e78;font:700 14px/1.2 var(--f-body,system-ui);text-align:left;cursor:pointer}
+#gomodal{position:fixed;inset:0;z-index:3500;display:grid;place-items:center;background:rgba(10,16,22,.45);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);padding:24px}
+#gomodal .gmc{background:#fff;border-radius:18px;padding:22px 20px 16px;max-width:320px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);text-align:center}
+#gomodal .gmt{white-space:pre-line;font:700 17px/1.45 var(--f-body,system-ui);color:#1d2b33;margin:0 0 16px}
+#gomodal .gmb{display:flex;gap:10px}
+#gomodal button{flex:1;border-radius:12px;padding:12px 0;font:700 15px/1 var(--f-body,system-ui);cursor:pointer;border:0}
+#gomodal .go{background:#0b6e78;color:#fff}
+#gomodal .no{background:#eef1f3;color:#334}
+#gopill{position:fixed;left:50%;top:calc(64px + env(safe-area-inset-top,0px));transform:translate(-50%,-14px);opacity:0;transition:.3s;z-index:3400;border:1.5px solid #0b6e78;background:#fff;color:#0b6e78;font:700 13.5px/1 var(--f-body,system-ui);padding:10px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.15);white-space:nowrap;cursor:pointer}
+#gopill.on{opacity:1;transform:translate(-50%,0)}

@@ -299,8 +299,10 @@ function pct(d,t){var p=t?Math.floor(d*100/t):0;P.textContent=p+"%";B.style.widt
 function btns(list){BT.innerHTML="";list.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[0];b.className=x[1];b.onclick=x[2];BT.appendChild(b);});BT.hidden=false;}
 function finish(msg,reload){clearTimeout(stall);P.textContent="100%";B.style.width="100%";T.textContent=msg;S.textContent=reload?"새 판으로 바뀌는 중":"이제 인터넷 없어도 다 보임";BT.hidden=true;
   setTimeout(function(){if(reload)location.reload();else close();mode=null;},reload?600:1200);}
-var updating=false;
+var updating=false,QUIET=/[#&]go=/.test(location.hash);
 navigator.serviceWorker.addEventListener("message",function(e){var d=e.data||{};
+  if(d.type==="progress"&&QUIET&&!updating){ if(d.total&&d.done<d.total){NM.textContent="온라인 모드 · 저장 중 "+Math.floor(d.done*100/d.total)+"%";} return; }
+  if(d.type==="ready"&&QUIET&&!updating){ nm(); return; }
   if(d.type==="progress"){ if(d.total&&d.done<d.total&&navigator.onLine){ if(mode!=="dl")prog(updating?"업데이트 중":"다운받는 중",updating?"새 내용 받는 중 · 잠깐만 기다리면 됨":"처음 한 번만 · 인터넷 없어도 보이게 사진을 휴대폰에 저장하는 중"); pct(d.done,d.total);} }
   if(d.type==="ready"){ if(mode==="dl"||updating)finish(updating?"업데이트 완료 ✓":"준비 완료 ✓",updating); }
 });

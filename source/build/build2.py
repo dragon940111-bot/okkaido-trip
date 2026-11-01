@@ -638,7 +638,7 @@ def sidenav_html():
             f'<button type="button" class="snedge" aria-controls="sidenav" title="문서 지도 접기" aria-label="문서 지도 접기"><b>◂</b><span>접기</span></button>'
             f'<button type="button" class="snopen" aria-controls="sidenav" aria-expanded="false" title="문서 지도 펼치기"><span>문서 지도</span><b>▸</b></button>'
             f'<button type="button" class="tocbtn" aria-expanded="false" aria-controls="tocpanel">목차 열기</button>'
-            f'<nav class="tocpanel" id="tocpanel" aria-label="목차" hidden><p class="sntitle">목차 <span class="snr">{FA}<button type="button" class="tocx" aria-label="닫기">✕</button></span></p>{ul}{FB}</nav>')
+            f'<nav class="tocpanel" id="tocpanel" aria-label="목차" hidden><p class="sntitle">목차 <span class="snr">{FA}<button type="button" class="tocx" aria-label="닫기">✕</button></span></p><button type="button" class="rcvlink">📋 카톡에서 받은 링크 열기</button>{ul}{FB}</nav>')
 page = (page.replace('{{WX}}', wx_table()).replace('{{SIDENAV}}', sidenav_html()).replace('{{BOOK}}', book_html()).replace('{{BOOKN}}', str(len(_bk19.BOOK19))).replace('{{ALTN}}', str(sum(len(g['items']) for g in _ab19.ALTBOOK))).replace('{{DAYS}}', days_html)
         .replace('{{CHANGES}}', changes_html()).replace('{{EATLIST}}', eatlist_html()).replace('{{SCEN}}', scen_all).replace('{{REGIONS}}', regions_html)
         .replace('{{CREDITS}}', credits()).replace('{{NEARFACT}}', near_fact()))

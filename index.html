@@ -903,6 +903,33 @@ p,li,dd,.why,.tip{text-wrap:pretty}
 w-s{display:inline-block;max-width:100%;text-indent:0}
 .badge>w-s,summary>w-s,h4>w-s,.eyebrow>w-s,.it-t>w-s{display:contents}
 
+/* v19.23 부분 공유 버튼 */
+button.shr{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:3px;font:600 11.5px/1 var(--f-body,system-ui);color:#0b6e78;background:#eef7f8;border:1px solid #c6e1e4;border-radius:999px;padding:4px 8px;cursor:pointer;white-space:nowrap;vertical-align:middle}
+button.shr i{font-style:normal}
+button.shr:active{background:#d6eef0}
+summary>button.shr-s{margin-left:8px;flex:none}
+article.card{position:relative}
+button.shr-c{position:absolute;top:8px;right:8px;z-index:2;background:rgba(255,255,255,.92)}
+li.it{position:relative}
+button.shr-t{position:absolute;left:0;top:26px;padding:3px 6px;font-size:10.5px}
+button.shr-t i{display:none}
+@media (min-width:761px){button.shr-t i{display:inline}}
+.goflash{animation:goflash 3.6s ease-out}
+@keyframes goflash{0%,35%{box-shadow:0 0 0 4px #ffd54a,0 0 0 9px rgba(255,213,74,.35);background-color:#fff8d6}100%{box-shadow:0 0 0 0 rgba(255,213,74,0)}}
+#shrtoast{position:fixed;left:50%;bottom:calc(110px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:#1d2b33;color:#fff;font-size:13.5px;padding:10px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:4000;white-space:nowrap}
+#shrtoast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.rcvlink{display:none}
+html.standalone .rcvlink{display:block;width:calc(100% - 24px);margin:6px 12px 10px;padding:11px 12px;border-radius:12px;border:1.5px solid #0b6e78;background:#eef7f8;color:#0b6e78;font:700 14px/1.2 var(--f-body,system-ui);text-align:left;cursor:pointer}
+#gomodal{position:fixed;inset:0;z-index:3500;display:grid;place-items:center;background:rgba(10,16,22,.45);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);padding:24px}
+#gomodal .gmc{background:#fff;border-radius:18px;padding:22px 20px 16px;max-width:320px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25);text-align:center}
+#gomodal .gmt{white-space:pre-line;font:700 17px/1.45 var(--f-body,system-ui);color:#1d2b33;margin:0 0 16px}
+#gomodal .gmb{display:flex;gap:10px}
+#gomodal button{flex:1;border-radius:12px;padding:12px 0;font:700 15px/1 var(--f-body,system-ui);cursor:pointer;border:0}
+#gomodal .go{background:#0b6e78;color:#fff}
+#gomodal .no{background:#eef1f3;color:#334}
+#gopill{position:fixed;left:50%;top:calc(64px + env(safe-area-inset-top,0px));transform:translate(-50%,-14px);opacity:0;transition:.3s;z-index:3400;border:1.5px solid #0b6e78;background:#fff;color:#0b6e78;font:700 13.5px/1 var(--f-body,system-ui);padding:10px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.15);white-space:nowrap;cursor:pointer}
+#gopill.on{opacity:1;transform:translate(-50%,0)}
+
 /* v19.2 미리 할 것 (book19.py) — 기존 .book 카드 위에 덧붙이는 스타일 */
 .bkwrap{display:grid;gap:18px}
 .bkgrp{display:grid;gap:8px;min-width:0}
@@ -1024,7 +1051,7 @@ details.abgrp>summary .abn{font-size:12.5px;color:var(--muted);white-space:nowra
 .abhow .num{white-space:nowrap;font-family:var(--f-mono)}
 </style>
 
-<nav class="sidenav" id="sidenav" aria-label="문서 지도"><p class="sntitle"><span class="snl">문서 지도</span><span class="snr"><button type="button" class="foldall" disabled>모두 접기<span class="fac"></span></button><button type="button" class="snclose" aria-label="문서 지도 접기" title="문서 지도 접기">◂ 접기</button></span></p><ul><li class=""><a href="#top">맨 위</a></li><li class=""><a href="#map">전체 지도</a></li><li class=""><a href="#weather">날씨</a></li><li class=""><a href="#booking">미리 할 것</a></li><li class=""><a href="#changes">원래 일정 비교</a></li><li class=""><a href="#plan">날짜별 시간표</a></li><li class="sub "><a href="#eatlist">맛집만 모아 보기</a></li><li class="snhead"><a href="#detail"><span class="t">상세 일정</span><span class="hd">DAY 1⁠–⁠5</span></a></li><li class="sub n1"><a href="#day1"><span class="shield n1">1</span><span class="t">11/2 시코쓰호 → 삿포로</span></a></li><li class="sub n2"><a href="#day2"><span class="shield n2">2</span><span class="t">11/3 삿포로 남쪽 → 오타루</span></a></li><li class="sub n3"><a href="#day3"><span class="shield n3">3</span><span class="t">11/4 남쪽 (다테⁠·​도야⁠·​노보리베쓰)</span></a></li><li class="sub n4"><a href="#day4"><span class="shield n4">4</span><span class="t">11/5 북쪽 (아사히카와⁠·​비에이)</span></a></li><li class="sub n5"><a href="#day5"><span class="shield n5">5</span><span class="t">11/6 출국</span></a></li><li class=""><a href="#swap">일정 변경 대안</a></li><li class="sub "><a href="#scen-A"><span class="sk">A</span><span class="t">11/3을 오비히로⁠·​도카치 당일치기로</span></a></li><li class="sub "><a href="#scen-B"><span class="sk">B</span><span class="t">11/5 북쪽을 소운쿄⁠·​구로다케로</span></a></li><li class="sub "><a href="#scen-C"><span class="sk">C</span><span class="t">날씨가 바뀌면: 11/3과 11/4 맞바꾸기</span></a></li><li class="sub "><a href="#scen-D"><span class="sk">D</span><span class="t">11/5 북쪽을 니세코⁠·​요테이산으로</span></a></li><li class="sub "><a href="#scen-E"><span class="sk">E</span><span class="t">11/3 두대불 대신 요이치 닛카 증류소</span></a></li><li class="sub "><a href="#scen-F"><span class="sk">F</span><span class="t">11/2 시코쓰호 대신 삿포로 시내 (오후)</span></a></li><li class="sub "><a href="#scen-G"><span class="sk">G</span><span class="t">11/5 북쪽 대신 삿포로 시내 (하루, 차 없이)</span></a></li><li class=""><a href="#regions">외곽 맛집 모음</a></li><li class=""><a href="#sources">출처와 메모</a></li></ul><div class="snfoot"><button type="button" class="foldall big" disabled>▴ 펼친 것 모두 접기<span class="fac"></span></button><a class="sngo" href="guide.html"><span aria-hidden="true">🚗</span><b>일본 운전 가이드</b><i aria-hidden="true">→</i></a></div></nav><button type="button" class="snedge" aria-controls="sidenav" title="문서 지도 접기" aria-label="문서 지도 접기"><b>◂</b><span>접기</span></button><button type="button" class="snopen" aria-controls="sidenav" aria-expanded="false" title="문서 지도 펼치기"><span>문서 지도</span><b>▸</b></button><button type="button" class="tocbtn" aria-expanded="false" aria-controls="tocpanel">목차 열기</button><nav class="tocpanel" id="tocpanel" aria-label="목차" hidden><p class="sntitle">목차 <span class="snr"><button type="button" class="foldall" disabled>모두 접기<span class="fac"></span></button><button type="button" class="tocx" aria-label="닫기">✕</button></span></p><ul><li class=""><a href="#top">맨 위</a></li><li class=""><a href="#map">전체 지도</a></li><li class=""><a href="#weather">날씨</a></li><li class=""><a href="#booking">미리 할 것</a></li><li class=""><a href="#changes">원래 일정 비교</a></li><li class=""><a href="#plan">날짜별 시간표</a></li><li class="sub "><a href="#eatlist">맛집만 모아 보기</a></li><li class="snhead"><a href="#detail"><span class="t">상세 일정</span><span class="hd">DAY 1⁠–⁠5</span></a></li><li class="sub n1"><a href="#day1"><span class="shield n1">1</span><span class="t">11/2 시코쓰호 → 삿포로</span></a></li><li class="sub n2"><a href="#day2"><span class="shield n2">2</span><span class="t">11/3 삿포로 남쪽 → 오타루</span></a></li><li class="sub n3"><a href="#day3"><span class="shield n3">3</span><span class="t">11/4 남쪽 (다테⁠·​도야⁠·​노보리베쓰)</span></a></li><li class="sub n4"><a href="#day4"><span class="shield n4">4</span><span class="t">11/5 북쪽 (아사히카와⁠·​비에이)</span></a></li><li class="sub n5"><a href="#day5"><span class="shield n5">5</span><span class="t">11/6 출국</span></a></li><li class=""><a href="#swap">일정 변경 대안</a></li><li class="sub "><a href="#scen-A"><span class="sk">A</span><span class="t">11/3을 오비히로⁠·​도카치 당일치기로</span></a></li><li class="sub "><a href="#scen-B"><span class="sk">B</span><span class="t">11/5 북쪽을 소운쿄⁠·​구로다케로</span></a></li><li class="sub "><a href="#scen-C"><span class="sk">C</span><span class="t">날씨가 바뀌면: 11/3과 11/4 맞바꾸기</span></a></li><li class="sub "><a href="#scen-D"><span class="sk">D</span><span class="t">11/5 북쪽을 니세코⁠·​요테이산으로</span></a></li><li class="sub "><a href="#scen-E"><span class="sk">E</span><span class="t">11/3 두대불 대신 요이치 닛카 증류소</span></a></li><li class="sub "><a href="#scen-F"><span class="sk">F</span><span class="t">11/2 시코쓰호 대신 삿포로 시내 (오후)</span></a></li><li class="sub "><a href="#scen-G"><span class="sk">G</span><span class="t">11/5 북쪽 대신 삿포로 시내 (하루, 차 없이)</span></a></li><li class=""><a href="#regions">외곽 맛집 모음</a></li><li class=""><a href="#sources">출처와 메모</a></li></ul><div class="snfoot"><button type="button" class="foldall big" disabled>▴ 펼친 것 모두 접기<span class="fac"></span></button><a class="sngo" href="guide.html"><span aria-hidden="true">🚗</span><b>일본 운전 가이드</b><i aria-hidden="true">→</i></a></div></nav>
+<nav class="sidenav" id="sidenav" aria-label="문서 지도"><p class="sntitle"><span class="snl">문서 지도</span><span class="snr"><button type="button" class="foldall" disabled>모두 접기<span class="fac"></span></button><button type="button" class="snclose" aria-label="문서 지도 접기" title="문서 지도 접기">◂ 접기</button></span></p><ul><li class=""><a href="#top">맨 위</a></li><li class=""><a href="#map">전체 지도</a></li><li class=""><a href="#weather">날씨</a></li><li class=""><a href="#booking">미리 할 것</a></li><li class=""><a href="#changes">원래 일정 비교</a></li><li class=""><a href="#plan">날짜별 시간표</a></li><li class="sub "><a href="#eatlist">맛집만 모아 보기</a></li><li class="snhead"><a href="#detail"><span class="t">상세 일정</span><span class="hd">DAY 1⁠–⁠5</span></a></li><li class="sub n1"><a href="#day1"><span class="shield n1">1</span><span class="t">11/2 시코쓰호 → 삿포로</span></a></li><li class="sub n2"><a href="#day2"><span class="shield n2">2</span><span class="t">11/3 삿포로 남쪽 → 오타루</span></a></li><li class="sub n3"><a href="#day3"><span class="shield n3">3</span><span class="t">11/4 남쪽 (다테⁠·​도야⁠·​노보리베쓰)</span></a></li><li class="sub n4"><a href="#day4"><span class="shield n4">4</span><span class="t">11/5 북쪽 (아사히카와⁠·​비에이)</span></a></li><li class="sub n5"><a href="#day5"><span class="shield n5">5</span><span class="t">11/6 출국</span></a></li><li class=""><a href="#swap">일정 변경 대안</a></li><li class="sub "><a href="#scen-A"><span class="sk">A</span><span class="t">11/3을 오비히로⁠·​도카치 당일치기로</span></a></li><li class="sub "><a href="#scen-B"><span class="sk">B</span><span class="t">11/5 북쪽을 소운쿄⁠·​구로다케로</span></a></li><li class="sub "><a href="#scen-C"><span class="sk">C</span><span class="t">날씨가 바뀌면: 11/3과 11/4 맞바꾸기</span></a></li><li class="sub "><a href="#scen-D"><span class="sk">D</span><span class="t">11/5 북쪽을 니세코⁠·​요테이산으로</span></a></li><li class="sub "><a href="#scen-E"><span class="sk">E</span><span class="t">11/3 두대불 대신 요이치 닛카 증류소</span></a></li><li class="sub "><a href="#scen-F"><span class="sk">F</span><span class="t">11/2 시코쓰호 대신 삿포로 시내 (오후)</span></a></li><li class="sub "><a href="#scen-G"><span class="sk">G</span><span class="t">11/5 북쪽 대신 삿포로 시내 (하루, 차 없이)</span></a></li><li class=""><a href="#regions">외곽 맛집 모음</a></li><li class=""><a href="#sources">출처와 메모</a></li></ul><div class="snfoot"><button type="button" class="foldall big" disabled>▴ 펼친 것 모두 접기<span class="fac"></span></button><a class="sngo" href="guide.html"><span aria-hidden="true">🚗</span><b>일본 운전 가이드</b><i aria-hidden="true">→</i></a></div></nav><button type="button" class="snedge" aria-controls="sidenav" title="문서 지도 접기" aria-label="문서 지도 접기"><b>◂</b><span>접기</span></button><button type="button" class="snopen" aria-controls="sidenav" aria-expanded="false" title="문서 지도 펼치기"><span>문서 지도</span><b>▸</b></button><button type="button" class="tocbtn" aria-expanded="false" aria-controls="tocpanel">목차 열기</button><nav class="tocpanel" id="tocpanel" aria-label="목차" hidden><p class="sntitle">목차 <span class="snr"><button type="button" class="foldall" disabled>모두 접기<span class="fac"></span></button><button type="button" class="tocx" aria-label="닫기">✕</button></span></p><button type="button" class="rcvlink">📋 카톡에서 받은 링크 열기</button><ul><li class=""><a href="#top">맨 위</a></li><li class=""><a href="#map">전체 지도</a></li><li class=""><a href="#weather">날씨</a></li><li class=""><a href="#booking">미리 할 것</a></li><li class=""><a href="#changes">원래 일정 비교</a></li><li class=""><a href="#plan">날짜별 시간표</a></li><li class="sub "><a href="#eatlist">맛집만 모아 보기</a></li><li class="snhead"><a href="#detail"><span class="t">상세 일정</span><span class="hd">DAY 1⁠–⁠5</span></a></li><li class="sub n1"><a href="#day1"><span class="shield n1">1</span><span class="t">11/2 시코쓰호 → 삿포로</span></a></li><li class="sub n2"><a href="#day2"><span class="shield n2">2</span><span class="t">11/3 삿포로 남쪽 → 오타루</span></a></li><li class="sub n3"><a href="#day3"><span class="shield n3">3</span><span class="t">11/4 남쪽 (다테⁠·​도야⁠·​노보리베쓰)</span></a></li><li class="sub n4"><a href="#day4"><span class="shield n4">4</span><span class="t">11/5 북쪽 (아사히카와⁠·​비에이)</span></a></li><li class="sub n5"><a href="#day5"><span class="shield n5">5</span><span class="t">11/6 출국</span></a></li><li class=""><a href="#swap">일정 변경 대안</a></li><li class="sub "><a href="#scen-A"><span class="sk">A</span><span class="t">11/3을 오비히로⁠·​도카치 당일치기로</span></a></li><li class="sub "><a href="#scen-B"><span class="sk">B</span><span class="t">11/5 북쪽을 소운쿄⁠·​구로다케로</span></a></li><li class="sub "><a href="#scen-C"><span class="sk">C</span><span class="t">날씨가 바뀌면: 11/3과 11/4 맞바꾸기</span></a></li><li class="sub "><a href="#scen-D"><span class="sk">D</span><span class="t">11/5 북쪽을 니세코⁠·​요테이산으로</span></a></li><li class="sub "><a href="#scen-E"><span class="sk">E</span><span class="t">11/3 두대불 대신 요이치 닛카 증류소</span></a></li><li class="sub "><a href="#scen-F"><span class="sk">F</span><span class="t">11/2 시코쓰호 대신 삿포로 시내 (오후)</span></a></li><li class="sub "><a href="#scen-G"><span class="sk">G</span><span class="t">11/5 북쪽 대신 삿포로 시내 (하루, 차 없이)</span></a></li><li class=""><a href="#regions">외곽 맛집 모음</a></li><li class=""><a href="#sources">출처와 메모</a></li></ul><div class="snfoot"><button type="button" class="foldall big" disabled>▴ 펼친 것 모두 접기<span class="fac"></span></button><a class="sngo" href="guide.html"><span aria-hidden="true">🚗</span><b>일본 운전 가이드</b><i aria-hidden="true">→</i></a></div></nav>
 <script>try{if(localStorage.getItem('hk-nav-closed')==='1')document.documentElement.classList.add('navclosed');}catch(e){}</script>
 <nav class="jump jtop" aria-label="바로가기"><ul>
   <li><a href="#map">전체 지도</a></li>
@@ -6450,6 +6477,80 @@ details.abgrp>summary .abn{font-size:12.5px;color:var(--muted);white-space:nowra
   setTimeout(all,1500);
 })();
 </script>
+<script>
+/* v19.23 부분 공유: 카드·시간표 줄·접힌 칸마다 "🔗 공유" → 링크(#go=…) 열면 그 자리 펼쳐서 보여 줌 */
+(function(){
+  var BASE='https://dragon940111-bot.github.io/okkaido-trip/';
+  var MAP={};
+  function h32(str){ var h=0x811c9dc5; for(var i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=(h+((h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24)))>>>0; } return h.toString(36); }
+  function tx(e){ return e?(e.textContent||'').replace(/[​⁠]/g,'').replace(/\s+/g,' ').trim():''; }
+  function ctx(e){ var x=e.parentElement; while(x){ if(x.id&&!/^(tocpanel|sidenav)$/.test(x.id)) return x.id; x=x.parentElement; } return 'top'; }
+  function dayLabel(e){ var d=e.closest('[id^="scen-"],section.day,section.region,[id^="bk"],[id^="stay"]'); if(!d) return '';
+    if(/^scen-/.test(d.id)) return '대안 '+d.id.split('-')[1];
+    var ey=d.querySelector('.eyebrow'); if(ey){ var t=tx(ey).replace(/^\d+\s*/,''); var m=/(\d+\/\d+)\s*\(([^)]*)\)/.exec(t); return m?m[1]+'('+m[2].split(/\s/)[0]+')':t.slice(0,16); }
+    var h=d.querySelector('h3,h4,summary'); return h?tx(h).slice(0,20):''; }
+  function cardName(c){ var n=c.querySelector('.nmline'); if(n){ var t=tx(n).replace('한글 이름','').split('·')[0].trim(); if(t) return t; } var h=c.querySelector('h4,h3,.nm,.elh b,b'); return tx(h).slice(0,30)||tx(c).slice(0,30); }
+  function sumTitle(sm){ var h=sm.querySelector('h3,h4,b,strong,.t'); var t=tx(h||sm); return t.replace(/\s*(접기|펼쳐 보기)$/,'').slice(0,40); }
+  function addBtn(host,key,label,cls){ var b=document.createElement('button'); b.type='button'; b.className='shr '+(cls||''); b.setAttribute('data-go',key); b.setAttribute('data-lab',label);
+    b.innerHTML='<span aria-hidden="true">🔗</span><i>공유</i>'; b.title='이 부분 링크 보내기'; b.setAttribute('aria-label','이 부분 링크 보내기: '+label); host.appendChild(b); }
+  function reg(el,raw,label,host,cls){ var k=h32(raw), n=2; while(MAP[k]&&MAP[k]!==el){ k=h32(raw+'#'+n); n++; } MAP[k]=el; el.setAttribute('data-go',k); if(host) addBtn(host,k,label,cls); }
+  function scan(){
+    MAP={};
+    document.querySelectorAll('.shr').forEach(function(b){ b.remove(); });
+    [].forEach.call(document.querySelectorAll('details > summary'),function(sm){ var d=sm.parentElement; if(d.closest('.tocpanel,.sidenav,#sidenav')) return;
+      var t=sumTitle(sm); if(!t) return; reg(d,'d|'+ctx(d)+'|'+t, (dayLabel(d)&&dayLabel(d)!==t?dayLabel(d)+' · ':'')+t, sm,'shr-s'); });
+    [].forEach.call(document.querySelectorAll('ol.tl > li.it'),function(li){ var tm=tx(li.querySelector('time')), tt=tx(li.querySelector('.it-t')); if(!tm&&!tt) return;
+      reg(li,'t|'+ctx(li)+'|'+tm+'|'+tt.slice(0,24), (dayLabel(li)?dayLabel(li)+' · ':'')+tm+' '+tt.slice(0,30), li,'shr-t'); });
+    [].forEach.call(document.querySelectorAll('article.card'),function(c){ var nm=cardName(c);
+      reg(c,'c|'+ctx(c)+'|'+nm, (dayLabel(c)?dayLabel(c)+' · ':'')+nm, c,'shr-c'); });
+  }
+  function toast(m){ var t=document.getElementById('shrtoast'); if(!t){ t=document.createElement('div'); t.id='shrtoast'; document.body.appendChild(t); } t.textContent=m; t.className='on'; clearTimeout(t._t); t._t=setTimeout(function(){ t.className=''; },2200); }
+  function share(key,lab){ var url=BASE+'#go='+key, text='[홋카이도 여행] '+lab+'\n👉 링크만 눌러도 카톡 안에서 바로 이 부분이 펼쳐져서 보임\n📱 홈 화면 앱으로 보려면: 이 메시지를 길게 눌러 복사 → 앱 열기 → 위에 뜨는 "복사한 링크로 이동" 누르기';
+    if(navigator.share){ navigator.share({title:'[홋카이도 여행] '+lab,text:text,url:url}).catch(function(){}); return; }
+    var done=function(){ toast('링크 복사됨 · 카톡에 붙여넣기'); };
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text+'\n'+url).then(done,function(){ window.prompt('이 링크를 복사해서 보내기',url); }); }
+    else window.prompt('이 링크를 복사해서 보내기',url); }
+  document.addEventListener('click',function(e){ var b=e.target.closest&&e.target.closest('button.shr'); if(!b) return; e.preventDefault(); e.stopPropagation(); share(b.getAttribute('data-go'),b.getAttribute('data-lab')); },true);
+  function go(key,tries){ var el=MAP[key]; if(!el){ if((tries||0)<6) setTimeout(function(){ scan(); go(key,(tries||0)+1); },400); else toast('그 부분을 못 찾았음 · 내용이 바뀌었을 수 있음'); return; }
+    if(el.tagName==='DETAILS') el.open=true;
+    var d=el.parentElement&&el.parentElement.closest('details'); while(d){ d.open=true; d=d.parentElement&&d.parentElement.closest('details'); }
+    function pos(){ var r=el.getBoundingClientRect(); var top=r.top+scrollY-(r.height<innerHeight*0.6?Math.round(innerHeight*0.25):110); window.scrollTo({top:Math.max(0,top),left:0,behavior:'instant'}); }
+    setTimeout(pos,60); setTimeout(pos,700); setTimeout(pos,1600);
+    el.classList.remove('goflash'); void el.offsetWidth; el.classList.add('goflash'); setTimeout(function(){ el.classList.remove('goflash'); },4000); }
+  function fromHash(h){ var m=/[#&]go=([0-9a-z]+)/.exec(h||''); return m?m[1]:null; }
+  function onHash(){ var k=fromHash(location.hash); if(k) go(k); }
+  window.addEventListener('hashchange',onHash);
+  /* 홈 화면 앱: 카톡에서 복사한 링크를 붙여 넣어 열기 */
+  function openText(t){ var k=fromHash(t||''); if(k){ var tp=document.getElementById('tocpanel'); if(tp&&!tp.hidden){ var x=tp.querySelector('.tocx'); if(x) x.click(); } location.hash='go='+k; go(k); return true; } return false; }
+  document.addEventListener('click',function(e){ var b=e.target.closest&&e.target.closest('.rcvlink'); if(!b) return; e.preventDefault();
+    var ask=function(){ var t=window.prompt('카톡에서 복사한 링크를 붙여넣기',''); if(t&&!openText(t)) toast('여행 페이지 링크가 아님'); };
+    if(navigator.clipboard&&navigator.clipboard.readText){ navigator.clipboard.readText().then(function(t){ if(!openText(t)) ask(); },ask); } else ask(); });
+  /* 홈 화면 앱으로 열 때: (업데이트가 있으면 끝난 뒤) 화면 가운데 "복사한 링크로 이동?" */
+  function standalone(){ return document.documentElement.classList.contains('standalone')||(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone; }
+  function busy(){ return document.documentElement.classList.contains('dlopen'); }
+  var LAST=''; try{ LAST=localStorage.getItem('hk-go-last')||''; }catch(e){}
+  function remember(k){ LAST=k; try{ localStorage.setItem('hk-go-last',k); }catch(e){} }
+  function modal(msg,ok,onOk){ var m=document.getElementById('gomodal'); if(m) m.remove();
+    m=document.createElement('div'); m.id='gomodal'; m.innerHTML='<div class="gmc"><p class="gmt"></p><div class="gmb"><button type="button" class="go">'+ok+'</button><button type="button" class="no">닫기</button></div></div>';
+    m.querySelector('.gmt').textContent=msg; document.body.appendChild(m);
+    var close=function(){ m.remove(); }; m.querySelector('.no').onclick=close; m.addEventListener('click',function(e){ if(e.target===m) close(); });
+    m.querySelector('.go').onclick=function(){ close(); onOk(); }; setTimeout(function(){ if(m.parentNode) close(); },12000); }
+  function readAndGo(){ if(!(navigator.clipboard&&navigator.clipboard.readText)){ var t=window.prompt('카톡에서 복사한 링크를 붙여넣기',''); if(t&&!openText(t)) toast('여행 페이지 링크가 아님'); return; }
+    navigator.clipboard.readText().then(function(t){ var k=fromHash(t); if(k){ remember(k); openText(t); } else toast('복사한 여행 링크가 없음'); },function(){ toast('클립보드를 못 읽었음 · 목차의 "받은 링크 열기"로'); }); }
+  function clipCheck(){ if(!standalone()||fromHash(location.hash)) return;
+    var waited=0; (function wait(){ if(busy()&&waited<90000){ waited+=500; return setTimeout(wait,500); }
+      var generic=function(){ var c=document.getElementById('gopill'); if(c) c.remove(); c=document.createElement('button'); c.type='button'; c.id='gopill'; c.innerHTML='<span aria-hidden="true">📋</span> 복사한 링크로 이동'; document.body.appendChild(c);
+        c.onclick=function(){ c.remove(); readAndGo(); }; setTimeout(function(){ c.classList.add('on'); },30); setTimeout(function(){ c.classList.remove('on'); setTimeout(function(){ if(c.parentNode) c.remove(); },400); },6000); };
+      if(navigator.permissions&&navigator.permissions.query&&navigator.clipboard&&navigator.clipboard.readText){
+        navigator.permissions.query({name:'clipboard-read'}).then(function(p){
+          if(p.state==='granted'){ navigator.clipboard.readText().then(function(t){ var k=fromHash(t); if(k&&k!==LAST) modal('복사한 링크 부분으로\n이동하시겠습니까?','이동',function(){ remember(k); openText(t); }); },function(){}); }
+          else generic(); },generic);
+      } else generic(); })(); }
+  var hiddenAt=0; document.addEventListener('visibilitychange',function(){ if(document.hidden) hiddenAt=Date.now(); else if(hiddenAt&&Date.now()-hiddenAt>60000) setTimeout(clipCheck,800); });
+  function init(){ scan(); onHash(); setTimeout(clipCheck,3200); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(init,200); }); else setTimeout(init,200);
+})();
+</script>
 
 <div id="dlv" hidden><div class="dlc">
   <p class="dlt" id="dlt">다운받는 중</p><p class="dlp" id="dlp">0%</p>
@@ -6493,8 +6594,10 @@ function pct(d,t){var p=t?Math.floor(d*100/t):0;P.textContent=p+"%";B.style.widt
 function btns(list){BT.innerHTML="";list.forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[0];b.className=x[1];b.onclick=x[2];BT.appendChild(b);});BT.hidden=false;}
 function finish(msg,reload){clearTimeout(stall);P.textContent="100%";B.style.width="100%";T.textContent=msg;S.textContent=reload?"새 판으로 바뀌는 중":"이제 인터넷 없어도 다 보임";BT.hidden=true;
   setTimeout(function(){if(reload)location.reload();else close();mode=null;},reload?600:1200);}
-var updating=false;
+var updating=false,QUIET=/[#&]go=/.test(location.hash);
 navigator.serviceWorker.addEventListener("message",function(e){var d=e.data||{};
+  if(d.type==="progress"&&QUIET&&!updating){ if(d.total&&d.done<d.total){NM.textContent="온라인 모드 · 저장 중 "+Math.floor(d.done*100/d.total)+"%";} return; }
+  if(d.type==="ready"&&QUIET&&!updating){ nm(); return; }
   if(d.type==="progress"){ if(d.total&&d.done<d.total&&navigator.onLine){ if(mode!=="dl")prog(updating?"업데이트 중":"다운받는 중",updating?"새 내용 받는 중 · 잠깐만 기다리면 됨":"처음 한 번만 · 인터넷 없어도 보이게 사진을 휴대폰에 저장하는 중"); pct(d.done,d.total);} }
   if(d.type==="ready"){ if(mode==="dl"||updating)finish(updating?"업데이트 완료 ✓":"준비 완료 ✓",updating); }
 });
