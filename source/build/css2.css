@@ -882,3 +882,11 @@ a.mvgo:hover .it-t,a.mvgo:active .it-t{filter:brightness(.96);border-style:solid
 .nearsec .nearlist{padding:0}
 .neartbl td{vertical-align:top}
 .neartbl .kind{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 6px;border-radius:6px;background:color-mix(in srgb,var(--accent) 12%,var(--card))}
+
+/* v19.22 모바일 줄바꿈: 낱말 중간에서 안 끊기게, " · " 항목 단위로 줄바꿈 */
+body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+:lang(ja),[lang="ja"]{word-break:normal}
+h1,h2,h3,h4,h5,summary,.it-t,figcaption{text-wrap:balance}
+p,li,dd,.why,.tip{text-wrap:pretty}
+w-s{display:inline-block;max-width:100%;text-indent:0}
+.badge>w-s,summary>w-s,h4>w-s,.eyebrow>w-s,.it-t>w-s{display:contents}

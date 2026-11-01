@@ -681,6 +681,36 @@ if os.environ.get('DUMP'):
 page = _walk_text(page, _apply_polish)
 if _POLISH: print('polish applied', len(_POLISH_HIT), '/', len(_POLISH))
 page = _ko.annotate_html(page, ANN)
+# v19.22 모바일 줄바꿈: 짧은 " · " 나열은 항목 단위로만 줄바꿈 (항목 중간에서 안 끊기게)
+_NR = re.compile(r'(\d)([–~〜])(\d)')
+_MD = re.compile(r'(?<=[가-힣A-Za-z0-9)\u3040-\u30ff\u4e00-\u9fff])·(?=[가-힣A-Za-z0-9(\u3040-\u30ff\u4e00-\u9fff])')
+def _fix(t): return _MD.sub('\u2060·\u200b', _NR.sub('\\1\u2060\\2\u2060\\3', t)).replace(' · ', '\u00a0· ')
+def _seg_walk(page):
+    toks = re.split(r'(<[^>]+>)', page); skip = []; out = []
+    for t in toks:
+        if t.startswith('<'):
+            low = t.lower()
+            if skip:
+                if low.startswith('</' + skip[-1]): skip.pop()
+            elif low.startswith(('<style', '<script', '<title', '<option', '<textarea', '<svg')) and not low.endswith('/>'):
+                skip.append(re.match(r'<(\w+)', low).group(1))
+            out.append(t)
+        elif skip:
+            out.append(t)
+        elif ' · ' not in t or len(t) > 140:
+            out.append(_fix(t))
+        else:
+            t = _fix(t)
+            parts = t.split('\u00a0· ')
+            if max(len(x.strip()) for x in parts) > 40: out.append(t); continue
+            segs = []
+            for i, x in enumerate(parts):
+                tail = '\u00a0·' if i < len(parts) - 1 else ''
+                lead = x[:len(x) - len(x.lstrip())]; core = x.strip(); trail = x[len(x.rstrip()):]
+                segs.append(lead + (('<w-s>' + core + tail + '</w-s>') if core and len(core) <= 18 else core + tail) + trail)
+            out.append(' '.join(segs))
+    return ''.join(out)
+page = _seg_walk(page)
 json.dump(ANN.log, open(os.path.join(HERE, 'ko_log.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
 open(os.path.join(HERE, 'site/hokkaido-trip.html'), 'w', encoding='utf-8').write(page)
 os.makedirs(os.path.join(HERE, 'site/img'), exist_ok=True)
