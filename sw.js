@@ -1,4 +1,4 @@
-// 버전 f77c3054b8
+// 버전 4d48fa41b5
 const C='hk-trip';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png'])));});
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
