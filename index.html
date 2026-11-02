@@ -439,7 +439,7 @@ details.alts>summary:hover{background:color-mix(in srgb,var(--dc) 15%,var(--card
 details.alts>summary::before{content:"+";font:700 20px/1 var(--f-mono);width:26px;height:26px;display:inline-grid;place-items:center;border-radius:50%;background:var(--dc);color:var(--on-dc);flex:none}
 details.alts[open]>summary::before{content:"−"}
 details.alts>summary b{font-size:17px;font-weight:900}
-details.alts>summary::after{content:"눌러서 펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--dc);border:1.5px solid var(--dc);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
+details.alts>summary::after{content:"펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--dc);border:1.5px solid var(--dc);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
 details.alts[open]>summary::after{content:"접기 ▴"}
 details.alts>summary>span{flex-basis:100%;order:3;padding-left:38px;font-size:13.5px}
 @media (max-width:560px){details.alts>summary>span{padding-left:0}details.alts>summary b{font-size:16px}}
@@ -457,7 +457,7 @@ details.freed>summary:hover{background:color-mix(in srgb,var(--ok) 13%,var(--car
 details.freed>summary::before{content:"+";font:700 20px/1 var(--f-mono);width:26px;height:26px;display:inline-grid;place-items:center;border-radius:50%;background:var(--ok);color:var(--on-dc);flex:none}
 details.freed[open]>summary::before{content:"−"}
 details.freed>summary b{font-size:17px;font-weight:900;color:var(--ok)}
-details.freed>summary::after{content:"눌러서 펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--ok);border:1.5px solid var(--ok);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
+details.freed>summary::after{content:"펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--ok);border:1.5px solid var(--ok);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
 details.freed[open]>summary::after{content:"접기 ▴"}
 details.freed>summary>span{flex-basis:100%;order:3;padding-left:38px;font-size:13.5px;color:var(--muted)}
 .frhint{margin:0 16px 10px;font-size:12.5px;color:var(--muted)}
@@ -927,8 +927,29 @@ html.standalone .rcvlink{display:block;width:calc(100% - 24px);margin:6px 12px 1
 #gomodal button{flex:1;border-radius:12px;padding:12px 0;font:700 15px/1 var(--f-body,system-ui);cursor:pointer;border:0}
 #gomodal .go{background:#0b6e78;color:#fff}
 #gomodal .no{background:#eef1f3;color:#334}
-#gopill{position:fixed;left:50%;top:calc(64px + env(safe-area-inset-top,0px));transform:translate(-50%,-14px);opacity:0;transition:.3s;z-index:3400;border:1.5px solid #0b6e78;background:#fff;color:#0b6e78;font:700 13.5px/1 var(--f-body,system-ui);padding:10px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.15);white-space:nowrap;cursor:pointer}
-#gopill.on{opacity:1;transform:translate(-50%,0)}
+#gopill{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,14px);opacity:0;transition:.3s;z-index:3400;display:flex;align-items:center;background:#fff;border:1.5px solid #0b6e78;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.15);white-space:nowrap;pointer-events:none}
+#gopill.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#gopill button{all:unset;cursor:pointer;color:#0b6e78;font:700 13.5px/1 var(--f-body,system-ui)}
+#gopill .gpgo{padding:10px 6px 10px 15px}
+#gopill .gpx{padding:10px 13px 10px 8px;color:#7a8a90;font-weight:600}
+
+/* v19.25 공유 버튼: 글씨 없이 작은 동그라미 🔗, 줄·열 맞춤 */
+button.shr{all:unset;box-sizing:border-box;display:inline-grid!important;place-items:center;width:30px;height:30px;padding:0!important;border-radius:50%;background:#eef7f8;border:1px solid #c6e1e4;font-size:13px;line-height:1;cursor:pointer;flex:none;vertical-align:middle}
+button.shr i{display:none!important}
+/* 접힌 칸 제목: 오른쪽 위 고정 */
+summary:has(>button.shr-s){position:relative;padding-right:52px!important}
+summary>button.shr-s{position:absolute;top:12px;right:12px;margin:0!important}
+/* 대안 맛집·자유시간 칸: "펼치기" 알약 바로 왼쪽에 나란히 */
+details.alts>summary:has(>button.shr-s),details.freed>summary:has(>button.shr-s){padding-right:16px!important}
+details.alts>summary>button.shr-s,details.freed>summary>button.shr-s{position:static;margin-left:auto!important}
+details.alts>summary:has(>button.shr-s)::after,details.freed>summary:has(>button.shr-s)::after{margin-left:0}
+/* 식당 카드: 구글맵·길안내 버튼 줄 맨 끝 */
+.links>button.shr-c{position:static;margin-left:2px;align-self:center}
+/* 시간표 줄: 시각 바로 밑, 시각 오른쪽 끝에 맞춤 */
+.it>time,.it>.dot{grid-row:1}
+.it>.it-b{grid-row:1/span 2}
+.it>button.shr-t{position:static;grid-column:1;grid-row:2;justify-self:end;align-self:start;margin-top:4px;width:26px;height:26px;font-size:11.5px}
+.it:has(>button.shr-t){grid-template-rows:auto 1fr}
 
 /* v19.2 미리 할 것 (book19.py) — 기존 .book 카드 위에 덧붙이는 스타일 */
 .bkwrap{display:grid;gap:18px}
@@ -1071,7 +1092,7 @@ details.abgrp>summary .abn{font-size:12.5px;color:var(--muted);white-space:nowra
 <div class="wide" id="top">
 <header class="top">
   <p class="eyebrow"><w-s>2026 ·</w-s> <w-s>11 ·</w-s> <w-s>02 MON — 11 ·</w-s> <w-s>06 FRI ·</w-s> <w-s>렌터카 4박 5일</w-s></p>
-  <div class="pwanote"><b>인터넷 없이 보려면 (한 번만 하면 됨)</b><ol><li><b>아이폰:</b> 카톡에서 열었으면 오른쪽 아래 <b>공유 버튼</b> → <b>다른 브라우저로 열기</b>(사파리). 사파리에서 <b>공유 버튼</b>(네모에 ↑) → <b>더 보기(⌄)</b> → <b>홈 화면에 추가</b>. 안 보이면 그 목록을 아래로 내려서 찾으면 됨.</li><li><b>안드로이드:</b> 카톡에서 열었으면 메뉴(⋮) → <b>다른 브라우저로 열기</b>(크롬) → 크롬 메뉴(⋮) → <b>홈 화면에 추가</b>.</li></ol>그다음부터 홈 화면 아이콘으로 열면 인터넷 없어도 다 보임. 인터넷 될 때 열면 최신판으로 자동으로 바뀜.<span class="pwaver">판 2026-11-01</span></div><h1>홋카이도 맛집 투어 계획</h1>
+  <div class="pwanote"><b>인터넷 없이 보려면 (한 번만 하면 됨)</b><ol><li><b>아이폰:</b> 카톡에서 열었으면 오른쪽 아래 <b>공유 버튼</b> → <b>다른 브라우저로 열기</b>(사파리). 사파리에서 <b>공유 버튼</b>(네모에 ↑) → <b>더 보기(⌄)</b> → <b>홈 화면에 추가</b>. 안 보이면 그 목록을 아래로 내려서 찾으면 됨.</li><li><b>안드로이드:</b> 카톡에서 열었으면 메뉴(⋮) → <b>다른 브라우저로 열기</b>(크롬) → 크롬 메뉴(⋮) → <b>홈 화면에 추가</b>.</li></ol>그다음부터 홈 화면 아이콘으로 열면 인터넷 없어도 다 보임. 인터넷 될 때 열면 최신판으로 자동으로 바뀜.<span class="pwaver">판 2026-11-02</span></div><h1>홋카이도 맛집 투어 계획</h1>
   <ul class="leadlist">
     <li>삿포로 북17조 숙소 거점으로, 비 오는 곳 피해서 날마다 다른 지역 가게 짰음. 출발은 매일 9시 이후.</li>
     <li>끼니마다 메인 맛집 1곳 + 같은 동선 대안 맛집 3⁠–⁠5곳 붙였음.</li>
@@ -6497,15 +6518,15 @@ details.abgrp>summary .abn{font-size:12.5px;color:var(--muted);white-space:nowra
   function scan(){
     MAP={};
     document.querySelectorAll('.shr').forEach(function(b){ b.remove(); });
-    [].forEach.call(document.querySelectorAll('details > summary'),function(sm){ var d=sm.parentElement; if(d.closest('.tocpanel,.sidenav,#sidenav')) return;
+    [].forEach.call(document.querySelectorAll('details > summary'),function(sm){ var d=sm.parentElement; if(d.closest('.tocpanel,.sidenav,#sidenav,article.card')) return;
       var t=sumTitle(sm); if(!t) return; reg(d,'d|'+ctx(d)+'|'+t, (dayLabel(d)&&dayLabel(d)!==t?dayLabel(d)+' · ':'')+t, sm,'shr-s'); });
     [].forEach.call(document.querySelectorAll('ol.tl > li.it'),function(li){ var tm=tx(li.querySelector('time')), tt=tx(li.querySelector('.it-t')); if(!tm&&!tt) return;
       reg(li,'t|'+ctx(li)+'|'+tm+'|'+tt.slice(0,24), (dayLabel(li)?dayLabel(li)+' · ':'')+tm+' '+tt.slice(0,30), li,'shr-t'); });
     [].forEach.call(document.querySelectorAll('article.card'),function(c){ var nm=cardName(c);
-      reg(c,'c|'+ctx(c)+'|'+nm, (dayLabel(c)?dayLabel(c)+' · ':'')+nm, c,'shr-c'); });
+      reg(c,'c|'+ctx(c)+'|'+nm, (dayLabel(c)?dayLabel(c)+' · ':'')+nm, c.querySelector(':scope > .cb > .links, .links')||c,'shr-c'); });
   }
   function toast(m){ var t=document.getElementById('shrtoast'); if(!t){ t=document.createElement('div'); t.id='shrtoast'; document.body.appendChild(t); } t.textContent=m; t.className='on'; clearTimeout(t._t); t._t=setTimeout(function(){ t.className=''; },2200); }
-  function share(key,lab){ var url=BASE+'#go='+key, text='[홋카이도 여행] '+lab+'\n👉 링크만 눌러도 카톡 안에서 바로 이 부분이 펼쳐져서 보임\n📱 홈 화면 앱으로 보려면: 이 메시지를 길게 눌러 복사 → 앱 열기 → 위에 뜨는 "복사한 링크로 이동" 누르기';
+  function share(key,lab){ var url=BASE+'#go='+key, text='[홋카이도 여행] '+lab+'\n👉 링크만 눌러도 카톡 안에서 바로 이 부분이 펼쳐져서 보임\n📱 홈 화면 앱으로 보려면: 이 메시지를 길게 눌러 복사 → 앱 열기 → 아래에 뜨는 "복사한 링크로 이동" 누르기 (안 보이면 목차 → "카톡에서 받은 링크 열기")';
     if(navigator.share){ navigator.share({title:'[홋카이도 여행] '+lab,text:text,url:url}).catch(function(){}); return; }
     var done=function(){ toast('링크 복사됨 · 카톡에 붙여넣기'); };
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text+'\n'+url).then(done,function(){ window.prompt('이 링크를 복사해서 보내기',url); }); }
@@ -6539,14 +6560,18 @@ details.abgrp>summary .abn{font-size:12.5px;color:var(--muted);white-space:nowra
     navigator.clipboard.readText().then(function(t){ var k=fromHash(t); if(k){ remember(k); openText(t); } else toast('복사한 여행 링크가 없음'); },function(){ toast('클립보드를 못 읽었음 · 목차의 "받은 링크 열기"로'); }); }
   function clipCheck(){ if(!standalone()||fromHash(location.hash)) return;
     var waited=0; (function wait(){ if(busy()&&waited<90000){ waited+=500; return setTimeout(wait,500); }
-      var generic=function(){ var c=document.getElementById('gopill'); if(c) c.remove(); c=document.createElement('button'); c.type='button'; c.id='gopill'; c.innerHTML='<span aria-hidden="true">📋</span> 복사한 링크로 이동'; document.body.appendChild(c);
-        c.onclick=function(){ c.remove(); readAndGo(); }; setTimeout(function(){ c.classList.add('on'); },30); setTimeout(function(){ c.classList.remove('on'); setTimeout(function(){ if(c.parentNode) c.remove(); },400); },6000); };
+      var generic=function(){ /* v19.24: 아이폰은 클립보드를 미리 못 읽음 → 앱 처음 열 때만 하단 가운데 20초 */
+        var c=document.getElementById('gopill'); if(c) c.remove(); c=document.createElement('div'); c.id='gopill';
+        c.innerHTML='<button type="button" class="gpgo"><span aria-hidden="true">📋</span> 복사한 링크로 이동</button><button type="button" class="gpx" aria-label="닫기">✕</button>';
+        document.body.appendChild(c); var bye=function(){ c.classList.remove('on'); setTimeout(function(){ if(c.parentNode) c.remove(); },350); };
+        c.querySelector('.gpgo').onclick=function(){ bye(); readAndGo(); }; c.querySelector('.gpx').onclick=bye;
+        setTimeout(function(){ c.classList.add('on'); },30); setTimeout(bye,20000); };
       if(navigator.permissions&&navigator.permissions.query&&navigator.clipboard&&navigator.clipboard.readText){
         navigator.permissions.query({name:'clipboard-read'}).then(function(p){
           if(p.state==='granted'){ navigator.clipboard.readText().then(function(t){ var k=fromHash(t); if(k&&k!==LAST) modal('복사한 링크 부분으로\n이동하시겠습니까?','이동',function(){ remember(k); openText(t); }); },function(){}); }
           else generic(); },generic);
       } else generic(); })(); }
-  var hiddenAt=0; document.addEventListener('visibilitychange',function(){ if(document.hidden) hiddenAt=Date.now(); else if(hiddenAt&&Date.now()-hiddenAt>60000) setTimeout(clipCheck,800); });
+  /* v19.24: 다른 앱 갔다 돌아올 땐 다시 안 띄움 (처음 열 때만) */
   function init(){ scan(); onHash(); setTimeout(clipCheck,3200); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(init,200); }); else setTimeout(init,200);
 })();

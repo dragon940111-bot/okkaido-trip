@@ -427,7 +427,7 @@ details.alts>summary:hover{background:color-mix(in srgb,var(--dc) 15%,var(--card
 details.alts>summary::before{content:"+";font:700 20px/1 var(--f-mono);width:26px;height:26px;display:inline-grid;place-items:center;border-radius:50%;background:var(--dc);color:var(--on-dc);flex:none}
 details.alts[open]>summary::before{content:"−"}
 details.alts>summary b{font-size:17px;font-weight:900}
-details.alts>summary::after{content:"눌러서 펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--dc);border:1.5px solid var(--dc);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
+details.alts>summary::after{content:"펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--dc);border:1.5px solid var(--dc);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
 details.alts[open]>summary::after{content:"접기 ▴"}
 details.alts>summary>span{flex-basis:100%;order:3;padding-left:38px;font-size:13.5px}
 @media (max-width:560px){details.alts>summary>span{padding-left:0}details.alts>summary b{font-size:16px}}
@@ -445,7 +445,7 @@ details.freed>summary:hover{background:color-mix(in srgb,var(--ok) 13%,var(--car
 details.freed>summary::before{content:"+";font:700 20px/1 var(--f-mono);width:26px;height:26px;display:inline-grid;place-items:center;border-radius:50%;background:var(--ok);color:var(--on-dc);flex:none}
 details.freed[open]>summary::before{content:"−"}
 details.freed>summary b{font-size:17px;font-weight:900;color:var(--ok)}
-details.freed>summary::after{content:"눌러서 펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--ok);border:1.5px solid var(--ok);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
+details.freed>summary::after{content:"펼치기 ▾";margin-left:auto;font-weight:700;font-size:13px;color:var(--ok);border:1.5px solid var(--ok);border-radius:999px;padding:3px 11px;white-space:nowrap;background:var(--card)}
 details.freed[open]>summary::after{content:"접기 ▴"}
 details.freed>summary>span{flex-basis:100%;order:3;padding-left:38px;font-size:13.5px;color:var(--muted)}
 .frhint{margin:0 16px 10px;font-size:12.5px;color:var(--muted)}
@@ -915,5 +915,26 @@ html.standalone .rcvlink{display:block;width:calc(100% - 24px);margin:6px 12px 1
 #gomodal button{flex:1;border-radius:12px;padding:12px 0;font:700 15px/1 var(--f-body,system-ui);cursor:pointer;border:0}
 #gomodal .go{background:#0b6e78;color:#fff}
 #gomodal .no{background:#eef1f3;color:#334}
-#gopill{position:fixed;left:50%;top:calc(64px + env(safe-area-inset-top,0px));transform:translate(-50%,-14px);opacity:0;transition:.3s;z-index:3400;border:1.5px solid #0b6e78;background:#fff;color:#0b6e78;font:700 13.5px/1 var(--f-body,system-ui);padding:10px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.15);white-space:nowrap;cursor:pointer}
-#gopill.on{opacity:1;transform:translate(-50%,0)}
+#gopill{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,14px);opacity:0;transition:.3s;z-index:3400;display:flex;align-items:center;background:#fff;border:1.5px solid #0b6e78;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.15);white-space:nowrap;pointer-events:none}
+#gopill.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#gopill button{all:unset;cursor:pointer;color:#0b6e78;font:700 13.5px/1 var(--f-body,system-ui)}
+#gopill .gpgo{padding:10px 6px 10px 15px}
+#gopill .gpx{padding:10px 13px 10px 8px;color:#7a8a90;font-weight:600}
+
+/* v19.25 공유 버튼: 글씨 없이 작은 동그라미 🔗, 줄·열 맞춤 */
+button.shr{all:unset;box-sizing:border-box;display:inline-grid!important;place-items:center;width:30px;height:30px;padding:0!important;border-radius:50%;background:#eef7f8;border:1px solid #c6e1e4;font-size:13px;line-height:1;cursor:pointer;flex:none;vertical-align:middle}
+button.shr i{display:none!important}
+/* 접힌 칸 제목: 오른쪽 위 고정 */
+summary:has(>button.shr-s){position:relative;padding-right:52px!important}
+summary>button.shr-s{position:absolute;top:12px;right:12px;margin:0!important}
+/* 대안 맛집·자유시간 칸: "펼치기" 알약 바로 왼쪽에 나란히 */
+details.alts>summary:has(>button.shr-s),details.freed>summary:has(>button.shr-s){padding-right:16px!important}
+details.alts>summary>button.shr-s,details.freed>summary>button.shr-s{position:static;margin-left:auto!important}
+details.alts>summary:has(>button.shr-s)::after,details.freed>summary:has(>button.shr-s)::after{margin-left:0}
+/* 식당 카드: 구글맵·길안내 버튼 줄 맨 끝 */
+.links>button.shr-c{position:static;margin-left:2px;align-self:center}
+/* 시간표 줄: 시각 바로 밑, 시각 오른쪽 끝에 맞춤 */
+.it>time,.it>.dot{grid-row:1}
+.it>.it-b{grid-row:1/span 2}
+.it>button.shr-t{position:static;grid-column:1;grid-row:2;justify-self:end;align-self:start;margin-top:4px;width:26px;height:26px;font-size:11.5px}
+.it:has(>button.shr-t){grid-template-rows:auto 1fr}
